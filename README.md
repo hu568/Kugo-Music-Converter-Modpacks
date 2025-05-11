@@ -12,4 +12,10 @@
 
 ## 了解更多
 
-[kgg-dec](https://github.com/DHJComical/kgg-dec-mirror?tab=readme-ov-file#kgg-dec)
+[kgg-dec-mirror](https://github.com/DHJComical/kgg-dec-mirror?tab=readme-ov-file#kgg-dec)
+
+[kugou-kgm-decoder](https://github.com/ghtz08/kugou-kgm-decoder)
+
+~[kgg-dec](https://github.com/ix64/unlock-music)~
+
+~[unlock-music](https://github.com/ix64/unlock-music)~
