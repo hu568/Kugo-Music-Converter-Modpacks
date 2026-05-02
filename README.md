@@ -86,12 +86,3 @@
 ~[kgg-dec](https://github.com/ix64/unlock-music)~
 
 ~[unlock-music](https://github.com/ix64/unlock-music)~
-## Star History
-
-<a href="https://www.star-history.com/?repos=hu568%2FKugo-Music-Converter&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=hu568/Kugo-Music-Converter&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=hu568/Kugo-Music-Converter&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=hu568/Kugo-Music-Converter&type=date&legend=top-left" />
- </picture>
-</a>
