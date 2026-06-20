@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.spec
+
+# PyInstaller 编译输出
+build/
+dist/
+*.exe
+
+# 发行包
+Releases/
+
+# 用户输入文件
+input/
+input/*
+
+# 解密输出
+kgm-vpr-out/
+kgm-vpr-out/*
+
+# 测试音乐文件（大文件）
+Test-m/*.kgg
+Test-m/*.kgm
+Test-m/*.kgma
+Test-m/*.vpr
+Test-m/*.flac
+Test-m/*.zip
+
+# 系统
+Thumbs.db
+.DS_Store
