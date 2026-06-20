@@ -20,13 +20,11 @@ input/*
 kgm-vpr-out/
 kgm-vpr-out/*
 
-# 测试音乐文件（大文件）
-Test-m/*.kgg
-Test-m/*.kgm
-Test-m/*.kgma
-Test-m/*.vpr
-Test-m/*.flac
-Test-m/*.zip
+# 项目说明（已移至 README.md）
+AGENTS.md
+
+# 测试目录
+Test-m/
 
 # 系统
 Thumbs.db
