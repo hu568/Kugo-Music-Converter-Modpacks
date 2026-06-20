@@ -64,7 +64,7 @@ Kugo-Music-Converter/
 │   └── 把音乐文件放到这里.txt
 └── kgm-vpr-out/                  # 解密输出目录
     ├── ffmpeg.exe                # 格式转换工具
-    └── flac转mp3.bat             # 批量转 MP3 脚本
+    └── 批量转MP3.bat             # 批量转 MP3 脚本
 ```
 
 ---
