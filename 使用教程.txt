@@ -1,2 +1,39 @@
-樱茈：把你下载的需要转换的kgma，kgm，flac，kgg格式的文件都复制过来放在这个文件夹中使用''一键三联启动.bat''
+樱茈：
+### 方法一：使用一键启动脚本（推荐）
+
+1. 将需要转换的文件（.flac、.kgm、.kgg）复制到当前文件夹
+2. 右键点击`一键三联启动.ps1`，选择"使用PowerShell运行"
+3. 脚本将自动执行以下操作：
+   - 调用`convert-flac-kgm.ps1`脚本，将.flac文件重命名为.kgm格式
+   - 启动`unlockKuGoWin-64.exe`，用于处理.kgm文件
+   - 调用`convert-kgg-simple.ps1`脚本，用于处理.kgg文件
+
+### 方法二：单独使用PowerShell脚本
+
+#### 处理.flac文件
+
+1. 将需要转换的.flac文件复制到当前文件夹
+2. 右键点击`convert-flac-kgm.ps1`，选择"使用PowerShell运行"
+3. 脚本将自动将.flac文件重命名为.kgm格式
+
+#### 处理.kgm文件
+
+1. 将需要转换的.kgm文件复制到当前文件夹
+2. 双击运行`unlockKuGoWin-32.exe`（32位系统）或`unlockKuGoWin-64.exe`（64位系统）
+3. 工具将自动转换.kgm文件为.mp3格式
+
+#### 处理.kgg文件
+
+1. 使用酷狗音乐客户端播放需要转换的.kgg文件一次
+2. 将需要转换的.kgg文件复制到当前文件夹
+3. 右键点击`convert-kgg-simple.ps1`，选择"使用PowerShell运行"
+4. 脚本将自动将.kgg文件转换为.mp3格式
+
+## 关于kgg文件无法转换的问题
+
+解决方案：使用酷狗音乐客户端播放带有.kgg后缀的文件一次后可以正常转换。
+
+
+
+
 【旧，请忽略】行客说：把你需要转换的kgma格式的文件，都复制过来放在这个文件夹中，点击windows的32或者64位系统 就行了。
