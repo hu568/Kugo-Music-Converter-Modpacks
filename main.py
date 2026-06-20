@@ -340,7 +340,7 @@ def _safe_remove(filepath: str) -> None:
         pass
 
 
-# ─── 步骤5: 运行 flac转mp3.bat（可选） ─────────────────────────────
+# ─── 步骤5: 批量转 MP3（可选） ─────────────────────────────────────
 
 
 def step_convert_flac_to_mp3() -> bool:
