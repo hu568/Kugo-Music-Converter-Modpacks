@@ -16,9 +16,9 @@ Releases/
 input/
 input/*
 
-# 解密输出
-kgm-vpr-out/
+# 解密输出（排除批量转MP3工具本身）
 kgm-vpr-out/*
+!kgm-vpr-out/批量转MP3.bat
 
 # 项目说明（已移至 README.md）
 AGENTS.md
