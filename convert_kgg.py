@@ -27,6 +27,29 @@ def check_dependencies(project_dir: str) -> bool:
     return True
 
 
+def rename_kgg_disguised(target_dir: str) -> int:
+    """将 KGG 伪装文件（*.kgg.flac）去掉 .flac 后缀还原为 *.kgg，返回成功数"""
+    renamed = 0
+    for f in os.listdir(target_dir):
+        if not f.lower().endswith(".kgg.flac"):
+            continue
+        src = os.path.join(target_dir, f)
+        if not os.path.isfile(src):
+            continue
+        target = f[:-5]  # 去掉 .flac 伪装后缀，保留 .kgg
+        dst = os.path.join(target_dir, target)
+        if os.path.exists(dst):
+            print(f"  ⚠️  跳过: {f}（{target} 已存在）")
+            continue
+        try:
+            os.rename(src, dst)
+            print(f"  ✓ 已重命名: {f} -> {target}（实为 KGG 格式伪装）")
+            renamed += 1
+        except Exception as e:
+            print(f"  ✗ 重命名 {f} 失败 - {e}")
+    return renamed
+
+
 def convert_kgg_files(target_dir: str, project_dir: str) -> None:
     """处理目标目录中的所有 .kgg 文件"""
     kgg_dec = os.path.join(project_dir, "kgg-dec.exe")
@@ -34,6 +57,9 @@ def convert_kgg_files(target_dir: str, project_dir: str) -> None:
 
     # 确保输出目录存在
     os.makedirs(output_dir, exist_ok=True)
+
+    # 先还原 KGG 伪装文件（*.kgg.flac → *.kgg）
+    rename_kgg_disguised(target_dir)
 
     # 查找所有 .kgg 文件
     kgg_files = [f for f in os.listdir(target_dir)

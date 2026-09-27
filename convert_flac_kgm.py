@@ -1,6 +1,8 @@
 """
 FLAC to KGM Renamer
 将加密的 .flac 文件重命名为 .kgm（加密 FLAC 其实是伪装的 KGM 格式）
+注意: *.kgg.flac 实为伪装的 KGG 格式，只去掉 .flac 后缀还原为 *.kgg，
+     请使用 KGG解密.exe 解密
 
 用法:
     python convert_flac_kgm.py
@@ -20,6 +22,7 @@ def rename_flac_to_kgm(target_dir: str = ".") -> None:
     success_count = 0
     skip_count = 0
     error_count = 0
+    kgg_count = 0
 
     # 查找所有 .flac 文件
     flac_files = [f for f in os.listdir(target_dir)
@@ -33,8 +36,16 @@ def rename_flac_to_kgm(target_dir: str = ".") -> None:
 
     for flac_file in flac_files:
         base_name = os.path.splitext(flac_file)[0]
-        target_name = base_name + target_ext
         source_path = os.path.join(target_dir, flac_file)
+
+        # *.kgg.flac 实为伪装的 KGG 格式，去掉 .flac 后缀还原为 *.kgg（不要改成 .kgm）
+        if flac_file.lower().endswith(".kgg.flac"):
+            target_name = base_name  # XXX.kgg.flac -> XXX.kgg
+            is_kgg_disguise = True
+        else:
+            target_name = base_name + target_ext
+            is_kgg_disguise = False
+
         target_path = os.path.join(target_dir, target_name)
 
         print(f"处理: {flac_file}")
@@ -45,8 +56,12 @@ def rename_flac_to_kgm(target_dir: str = ".") -> None:
         else:
             try:
                 os.rename(source_path, target_path)
-                print(f"  ✓ 已重命名: {flac_file} -> {target_name}")
-                success_count += 1
+                if is_kgg_disguise:
+                    print(f"  ✓ 已重命名: {flac_file} -> {target_name}（实为 KGG 格式，请使用 KGG解密.exe 解密）")
+                    kgg_count += 1
+                else:
+                    print(f"  ✓ 已重命名: {flac_file} -> {target_name}")
+                    success_count += 1
             except Exception as e:
                 print(f"  ✗ 错误: 重命名 {flac_file} 失败 - {e}")
                 error_count += 1
@@ -56,6 +71,8 @@ def rename_flac_to_kgm(target_dir: str = ".") -> None:
     # 显示统计信息
     print("=== 重命名总结 ===")
     print(f"成功重命名: {success_count} 个文件")
+    if kgg_count:
+        print(f"KGG 伪装文件（.kgg.flac → .kgg）: {kgg_count} 个，请使用 KGG解密.exe 解密")
     print(f"跳过（已存在）: {skip_count} 个文件")
     print(f"失败: {error_count} 个文件")
     print()

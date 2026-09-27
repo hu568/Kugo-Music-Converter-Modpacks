@@ -4,7 +4,8 @@ Kugo Music Converter — 一键三联启动脚本
 
 工作流程:
     1. 从 input/ 复制文件到项目根目录
-    2. 将加密的 .flac 重命名为 .kgm（伪装 KGM 格式）
+    2. 将加密的 .flac 重命名为 .kgm（伪装 KGM 格式）；
+       .kgg.flac（伪装 KGG 格式，手机端常见）去掉 .flac 后缀还原为 .kgg
     3. 并行执行:
        a. unlockKuGoWin-64.exe — 解密 .kgm/.kgma/.vpr
        b. kgg-dec.exe — 解密 .kgg 并输出 .ogg
@@ -148,15 +149,42 @@ def step_copy_from_input() -> int:
 # ─── 步骤2: 重命名加密 .flac → .kgm ─────────────────────────────────
 
 
+def _rename_kgg_disguised(directory: str) -> int:
+    """将 KGG 伪装文件（*.kgg.flac）去掉 .flac 后缀还原为 *.kgg，返回成功数"""
+    renamed = 0
+    for f in os.listdir(directory):
+        if not f.lower().endswith(".kgg.flac"):
+            continue
+        src = os.path.join(directory, f)
+        if not os.path.isfile(src):
+            continue
+        target = f[:-5]  # 去掉 .flac 伪装后缀，保留 .kgg
+        dst = os.path.join(directory, target)
+        if os.path.exists(dst):
+            print_warning(f"  → 跳过: {f}（{target} 已存在）")
+            continue
+        try:
+            os.rename(src, dst)
+            print_info(f"  → 重命名: {f} -> {target}（实为 KGG 格式伪装）")
+            renamed += 1
+        except Exception as e:
+            print_error(f"重命名失败: {e}")
+    return renamed
+
+
 def step_rename_flac_to_kgm() -> int:
-    """将加密的 .flac 重命名为 .kgm，返回重命名的文件数"""
-    print_step(2, "处理加密的 .flac 文件（重命名为 .kgm）")
+    """将加密的 .flac 重命名为 .kgm；.kgg.flac（实为 KGG）去掉 .flac 伪装，返回处理数"""
+    print_step(2, "处理加密的 .flac 文件（重命名为 .kgm / .kgg）")
+
+    # .kgg.flac 是伪装的 KGG 文件（手机端常见），不走 KGM 解密，先单独还原
+    kgg_renamed = _rename_kgg_disguised(PROJECT_DIR)
 
     flac_files = [f for f in os.listdir(PROJECT_DIR)
                   if f.lower().endswith(".flac")
+                  and not f.lower().endswith(".kgg.flac")
                   and os.path.isfile(os.path.join(PROJECT_DIR, f))]
 
-    if not flac_files:
+    if not flac_files and kgg_renamed == 0:
         print_info("没有找到 .flac 文件，跳过")
         return 0
 
@@ -184,8 +212,8 @@ def step_rename_flac_to_kgm() -> int:
                 print_error(f"重命名失败: {e}")
                 errors += 1
 
-    print_success(f"重命名完成: 成功 {renamed}，跳过 {skipped}，失败 {errors}")
-    return renamed
+    print_success(f"重命名完成: 成功 {renamed + kgg_renamed}，跳过 {skipped}，失败 {errors}")
+    return renamed + kgg_renamed
 
 
 # ─── 步骤3: 运行 unlockKuGoWin ─────────────────────────────────────
@@ -252,6 +280,9 @@ def step_run_unlock_tool() -> bool:
 def step_process_kgg() -> bool:
     """解密 .kgg 文件并输出 .ogg"""
     print_step(4, "解密 .kgg 文件")
+
+    # .kgg.flac 是伪装的 KGG 文件，先去掉 .flac 后缀再统一处理
+    _rename_kgg_disguised(PROJECT_DIR)
 
     # 检查依赖
     if not os.path.isfile(KGG_DEC):
@@ -456,7 +487,8 @@ def step_cleanup() -> None:
 
         # 如果原始是 .flac，可能被重命名成了 .kgm，也清理掉
         if f.lower().endswith(".flac"):
-            kgm_name = os.path.splitext(f)[0] + ".kgm"
+            stem = os.path.splitext(f)[0]
+            kgm_name = stem + ".kgm"
             kgm_path = os.path.join(PROJECT_DIR, kgm_name)
             if os.path.isfile(kgm_path):
                 try:
@@ -465,6 +497,17 @@ def step_cleanup() -> None:
                     deleted += 1
                 except Exception as e:
                     print_warning(f"删除 {kgm_name} 失败: {e}")
+
+            # KGG 伪装文件（*.kgg.flac）会被重命名为 *.kgg，也清理掉
+            if stem.lower().endswith(".kgg"):
+                kgg_path = os.path.join(PROJECT_DIR, stem)
+                if os.path.isfile(kgg_path):
+                    try:
+                        os.remove(kgg_path)
+                        print_info(f"  → 删除: {stem}")
+                        deleted += 1
+                    except Exception as e:
+                        print_warning(f"删除 {stem} 失败: {e}")
 
     # 也清理 kgg-dec 可能遗留的临时文件
     for f in os.listdir(PROJECT_DIR):
