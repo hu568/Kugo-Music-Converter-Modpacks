@@ -35,6 +35,23 @@ FLAC转KGM.exe
 KGG解密.exe
 ```
 
+### 图形界面版
+
+不想敲命令行/数字菜单，可以使用图形界面（基于 pywebview + [WinUIonWeb](https://github.com/Furry-Xiyi/WinUIonWeb) 样式）：
+
+```bash
+pip install pywebview
+python gui.py
+```
+
+界面只有三个功能：
+
+1. **添加文件** — 点击选择，或直接把文件/文件夹拖进窗口；文件夹会自动扫描其中的音乐文件。此步骤仅暂存到列表，不会复制到 `input/`
+2. **开始处理** — 右下角单个按钮执行完整流程：把列表文件复制到 `input/` → 调用主程序解密 → 批量转 MP3 → 自动清理；窗口底部有流程进度状态条，处理日志在"处理日志"页签中实时显示
+3. **清理缓存** — 左下角按钮，删除 `input/` 与 `kgm-vpr-out/` 中的音乐文件（保留 `ffmpeg.exe` 和 `批量转MP3.bat`），点击后会先弹出确认对话框
+
+界面自动跟随系统明暗主题。
+
 ---
 
 ## 支持的加密格式
@@ -60,6 +77,8 @@ Kugo-Music-Converter/
 ├── unlockKuGoWin-64.exe          # KGM/KGMA/VPR 解密引擎（64位）
 ├── unlockKuGoWin-32.exe          # KGM/KGMA/VPR 解密引擎（32位）
 ├── kgm.mask                      # 解密掩码文件
+├── gui.py                        # 图形界面入口（pywebview，需 pip install pywebview）
+├── gui_assets/                   # 图形界面资源（HTML/CSS/JS）
 ├── README.md                     # 本说明文件
 ├── input/                        # ← 把音乐文件放这里
 │   └── 把音乐文件放到这里.txt
@@ -77,6 +96,8 @@ Kugo-Music-Converter/
 - **文件大小限制** — `unlockKuGoWin` 仅支持 78MB 以下的文件
 - **解密输出** — 所有解密产物都在 `kgm-vpr-out/` 目录
 - 运行完整流程后，复制到根目录的临时文件会自动清理，无需手动删除
+- 图形界面需要 `pip install pywebview`；打包时需把界面资源一起带上：
+  `pyinstaller --onefile --console gui.py --name 图形界面 --add-data "gui_assets;gui_assets"`
 - 本工具仅用于解密已购买或已获取的合法音乐文件，请尊重版权
 
 ---
