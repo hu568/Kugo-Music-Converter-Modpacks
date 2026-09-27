@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>酷狗音乐转换工具箱</title>
+  <link rel="stylesheet" href="winui.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div id="app-root">
+
+    <div class="infobar-slot" id="infobar-slot"></div>
+
+    <div class="app-tabbar">
+      <div class="win-selector-bar" role="tablist" aria-label="视图切换">
+        <div class="win-selector-bar-items-view">
+          <button class="win-selector-bar-item is-selected" id="tab-btn-main" role="tab" aria-selected="true" type="button">
+            <span class="win-selector-bar-item-content">
+              <span class="win-selector-bar-item-text">转换</span>
+            </span>
+            <span class="win-selector-bar-item-selection-visual"></span>
+          </button>
+          <button class="win-selector-bar-item" id="tab-btn-log" role="tab" aria-selected="false" type="button">
+            <span class="win-selector-bar-item-content">
+              <span class="win-selector-bar-item-text">处理日志</span>
+            </span>
+            <span class="win-selector-bar-item-selection-visual"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="app-main">
+
+      <!-- 页签:转换 -->
+      <section class="tab-page" id="tab-main">
+
+        <section class="app-card" id="card-files">
+          <div class="card-header">
+            <h2>添加文件</h2>
+          </div>
+
+          <div class="drop-zone" id="drop-zone" title="点击选择文件,或直接拖入文件 / 文件夹">
+            <div class="dz-icon-wrap" aria-hidden="true"><span class="win-font-icon dz-icon">&#xE8D6;</span></div>
+            <span class="dz-text">点击选择,或把文件 / 文件夹拖到这里</span>
+          </div>
+
+          <div class="file-list-toolbar">
+            <button class="win-btn" id="btn-add-files">
+              <span class="win-font-icon">&#xE8E5;</span>添加文件
+            </button>
+            <button class="win-btn" id="btn-add-folder">
+              <span class="win-font-icon">&#xE8B7;</span>添加文件夹
+            </button>
+            <span class="toolbar-spacer"></span>
+            <span class="file-count" id="file-count">共 0 个文件</span>
+            <button class="win-btn SubtleButtonStyle" id="btn-clear-list" disabled>
+              <span class="win-font-icon">&#xE74D;</span>清空列表
+            </button>
+          </div>
+
+          <div class="file-list" id="file-list">
+            <div class="file-empty" id="file-empty">
+              <span class="win-font-icon" aria-hidden="true">&#xE8D6;</span>
+              <span>还没有添加文件</span>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- 页签:处理日志 -->
+      <section class="tab-page tab-page-log" id="tab-log" hidden>
+        <div class="app-card log-card">
+          <div class="log-toolbar">
+            <h2>处理日志</h2>
+            <button class="win-btn SubtleButtonStyle" id="btn-clear-log" title="仅清空界面显示,不影响正在进行的处理">
+              <span class="win-font-icon">&#xE74D;</span>清空日志
+            </button>
+          </div>
+          <div class="log-view" id="log-view"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-left">
+        <button class="win-btn SubtleButtonStyle" id="btn-clean" title="删除 input/ 与 kgm-vpr-out/ 中的音乐文件(保留 ffmpeg.exe 和 批量转MP3.bat)">
+          <span class="win-font-icon">&#xE74D;</span>清理缓存
+        </button>
+        <div class="engine-badges" id="engine-badges"></div>
+      </div>
+      <div class="footer-right">
+        <span class="footer-path">
+          <span class="win-font-icon" aria-hidden="true">&#xE8B7;</span>
+          <span id="footer-outdir">输出目录:kgm-vpr-out/</span>
+        </span>
+        <button class="win-btn AccentButtonStyle" id="btn-start" disabled>
+          <span class="win-font-icon">&#xE768;</span><span id="btn-start-text">开始处理</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- 最底部:流程步骤 + 进度(始终可见) -->
+    <div class="kanban-strip" id="kanban-strip">
+      <div class="kanban" id="kanban">
+        <span class="kan-step" data-step="0"><span class="kan-icon">1</span><span class="kan-label">复制文件</span></span>
+        <span class="kan-step" data-step="1"><span class="kan-icon">2</span><span class="kan-label">重命名 .flac</span></span>
+        <span class="kan-step" data-step="2"><span class="kan-icon">3</span><span class="kan-label">解密 KGM · KGMA · VPR</span></span>
+        <span class="kan-step" data-step="3"><span class="kan-icon">4</span><span class="kan-label">解密 KGG → .ogg</span></span>
+        <span class="kan-step" data-step="4"><span class="kan-icon">5</span><span class="kan-label">批量转 MP3</span></span>
+        <span class="kan-step" data-step="5"><span class="kan-icon">6</span><span class="kan-label">清理临时文件</span></span>
+      </div>
+
+      <div class="progress-wrap" id="progress-wrap">
+        <div class="win-progress-bar" id="progress-bar">
+          <div class="LayoutRoot">
+            <div class="ProgressBarRoot">
+              <div class="ProgressBarClip">
+                <div class="ProgressBarTrack"></div>
+                <div class="DeterminateProgressBarIndicator" id="progress-indicator" style="width: 0%"></div>
+                <div class="IndeterminateProgressBarIndicator"></div>
+                <div class="IndeterminateProgressBarIndicator2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="progress-text" id="progress-text"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 确认对话框 -->
+  <div class="content-dialog-overlay" id="dialog-overlay" hidden>
+    <div class="content-dialog" role="dialog" aria-modal="true">
+      <div class="content-dialog-content">
+        <div class="content-dialog-title" id="dialog-title"></div>
+        <div class="content-dialog-body" id="dialog-body"></div>
+      </div>
+      <div class="content-dialog-command-space primary-secondary-visible">
+        <button class="win-btn AccentButtonStyle content-dialog-button content-dialog-primary" id="dialog-ok">确认</button>
+        <button class="win-btn content-dialog-button content-dialog-secondary" id="dialog-cancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

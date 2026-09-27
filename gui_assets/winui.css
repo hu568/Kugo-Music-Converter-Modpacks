@@ -1,0 +1,3200 @@
+/*
+ * WinUIonWeb 样式 — 提取自 https://github.com/Furry-Xiyi/WinUIonWeb (GPL-3.0)
+ * 第 1 部分:styles/theme.css(明暗主题令牌)
+ * 第 2 部分:各组件 <style>(Button / ContentDialog / ProgressBar / ProgressRing /
+ *           FontIcon / ListView / TextBlock / InfoBar / InfoBadge / ScrollBar)
+ * 本文件为库样式,应用自身的布局样式在 app.css 中。
+ */
+@property --app-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #F3F3F3;
+}
+
+@property --layer-default {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.50);
+}
+
+@property --flyout-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(252, 252, 252, 0.92);
+}
+
+@property --AcrylicInAppFillColorDefaultBrush {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(252, 252, 252, 0.92);
+}
+
+@property --ToolTipBackgroundBrush {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(252, 252, 252, 0.92);
+}
+
+@property --card-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.70);
+}
+
+@property --card-stroke {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --card-bg-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(246,246,246,0.50);
+}
+
+@property --stroke-surface-flyout {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --stroke-divider {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --ctrl-border-rest {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --ctrl-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --ctrl-border-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.16);
+}
+
+@property --accent-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.08);
+}
+
+@property --accent-border-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.40);
+}
+
+@property --text-primary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.89);
+}
+
+@property --text-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.62);
+}
+
+@property --text-tertiary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.45);
+}
+
+@property --text-disabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.36);
+}
+
+@property --subtle-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.04);
+}
+
+@property --subtle-tertiary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.02);
+}
+
+@property --subtle-pressed {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.06);
+}
+
+@property --ctrl-fill-default {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.70);
+}
+
+@property --ctrl-fill-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(249,249,249,0.50);
+}
+
+@property --ctrl-fill-tertiary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(249,249,249,0.30);
+}
+
+@property --ctrl-fill-disabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(249,249,249,0.30);
+}
+
+@property --ctrl-fill-input-active {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --ctrl-strong-fill {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.45);
+}
+
+@property --ctrl-strong-fill-disabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.32);
+}
+
+@property --ctrl-strong-stroke {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.45);
+}
+
+@property --ctrl-strong-stroke-disabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.22);
+}
+
+@property --ctrl-solid-fill {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --ctrl-elevation-top {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.08);
+}
+
+@property --ctrl-elevation-bottom {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.16);
+}
+
+@property --accent-base {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0067C0;
+}
+
+@property --accent-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,103,192,0.90);
+}
+
+@property --accent-pressed {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,103,192,0.80);
+}
+
+@property --accent-fill-disabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.22);
+}
+
+@property --accent-aa-fill {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #004E8C;
+}
+
+@property --accent-aa-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --accent-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --accent-text-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255,255,255,0.70);
+}
+
+@property --accent-text-fill-color-primary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0D4897;
+}
+
+@property --accent-text-fill-color-primary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0D4897;
+}
+
+@property --toggle-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.45);
+}
+
+@property --toggle-thumb {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.61);
+}
+
+@property --toggle-thumb-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.89);
+}
+
+@property --toggle-on-thumb {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --radio-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.45);
+}
+:root {
+  color-scheme: light dark;
+  --faster-duration: 0.083s;
+  --fast-duration: 0.167s;
+  --normal-duration: 0.200s;
+  --fast-out-slow-in: cubic-bezier(0, 0, 0, 1);
+  --app-bg: #F3F3F3;
+  --layer-default: rgba(255, 255, 255, 0.50);
+  --dialog-background: #FCFCFC;
+  --dialog-content-bg: rgba(255, 255, 255, 0.95);
+  --dialog-overlay: var(--SmokeFillColorDefaultBrush, rgba(0, 0, 0, 0.30));
+  --dialog-divider: rgba(0, 0, 0, 0.06);
+  --dialog-button-bg: #F3F3F3;
+  --SmokeFillColorDefaultBrush: rgba(0, 0, 0, 0.302);
+  --LayerFillColorAltBrush: #FFFFFF;
+  --ContentDialogCommandSpaceBackground: #F3F3F3;
+  --OverlayCornerRadius: 8px;
+  --FlyoutThemeMinWidth: 96px;
+  --FlyoutThemeMaxWidth: 456px;
+  --FlyoutThemeMinHeight: 40px;
+  --FlyoutThemeMaxHeight: 758px;
+  /* XAML Thickness is left,top,right,bottom: 16,15,16,17. */
+  --FlyoutContentPadding: 15px 16px 17px 16px;
+  --ContentDialogBackground: var(--SolidBackgroundFillColorBaseBrush, #F3F3F3);
+  --ContentDialogForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --ContentDialogBorderBrush: var(--SurfaceStrokeColorDefaultBrush, var(--flyout-border));
+  --ContentDialogSeparatorBorderBrush: var(--CardStrokeColorDefaultBrush, var(--card-stroke));
+  --ContentDialogBorderWidth: 1px;
+  --ContentDialogMinWidth: 320px;
+  --ContentDialogMaxWidth: 548px;
+  --ContentDialogMinHeight: 184px;
+  --ContentDialogMaxHeight: 756px;
+  --ContentDialogTopOverlay: var(--LayerFillColorAltBrush);
+  --SurfaceStrokeColorDefaultBrush: rgba(117, 117, 117, 0.4);
+  --SurfaceStrokeColorFlyoutBrush: rgba(0, 0, 0, 0.0588235);
+  --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.0588235);
+  --ContentDialogPadding: 24px;
+  --TeachingTipBackgroundBrush: var(--SolidBackgroundFillColorTertiaryBrush, #F9F9F9);
+  --TeachingTipBorderBrush: var(--SurfaceStrokeColorDefaultBrush, var(--ControlStrokeColorDefaultBrush, var(--flyout-border)));
+  --TeachingTipTransientBackground: var(--AcrylicInAppFillColorDefaultBrush, var(--flyout-bg));
+  --TeachingTipForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipTitleForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipSubtitleForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipAlternateCloseButtonSize: 40px;
+  --TeachingTipAlternateCloseButtonGlyphSize: 16px;
+  --TeachingTipAlternateCloseButtonBackground: transparent;
+  --TeachingTipAlternateCloseButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary));
+  --TeachingTipAlternateCloseButtonBackgroundPressed: var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary));
+  --TeachingTipAlternateCloseButtonForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipAlternateCloseButtonBorderBrush: transparent;
+  --TeachingTipAlternateCloseButtonBorderBrushPointerOver: var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary));
+  --TeachingTipAlternateCloseButtonBorderBrushPressed: var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary));
+  --SolidBackgroundFillColorTertiaryBrush: #F9F9F9;
+  --SurfaceStrokeColorDefaultBrush: rgba(117, 117, 117, 0.4);
+  --flyout-bg: rgba(252, 252, 252, 0.92);
+  --flyout-border: rgba(0, 0, 0, 0.06);
+  --flyout-backdrop: blur(30px) saturate(160%) brightness(1.02);
+  --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+  --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+  --ToolTipForegroundBrush: var(--TextFillColorPrimaryBrush);
+  --ToolTipBorderBrush: var(--SurfaceStrokeColorFlyoutBrush, var(--surface-stroke-color-flyout));
+  --card-bg: rgba(255, 255, 255, 0.70);
+  --card-stroke: rgba(0, 0, 0, 0.06);
+  --card-bg-secondary: rgba(246, 246, 246, 0.50);
+  --stroke-surface-flyout: rgba(0, 0, 0, 0.06);
+  --stroke-divider: rgba(0, 0, 0, 0.06);
+  --ctrl-border-rest: rgba(0, 0, 0, 0.06);
+  --ctrl-border: rgba(0, 0, 0, 0.06);
+  --ctrl-border-accent: rgba(0, 0, 0, 0.16);
+  --accent-border: rgba(255, 255, 255, 0.08);
+  --accent-border-accent: rgba(0, 0, 0, 0.40);
+  --ButtonBorderBrushDefaultTop: var(--ctrl-border);
+  --ButtonBorderBrushDefaultBottom: var(--ctrl-border-accent);
+  --AccentButtonBorderBrushDefault: var(--accent-border);
+  --AccentButtonBorderBrushDefaultBottom: var(--accent-border-accent);
+  --text-primary: rgba(0, 0, 0, 0.89);
+  --text-secondary: rgba(0, 0, 0, 0.62);
+  --text-tertiary: rgba(0, 0, 0, 0.45);
+  --text-disabled: rgba(0, 0, 0, 0.36);
+  --subtle-transparent: transparent;
+  --subtle-secondary: rgba(0, 0, 0, 0.0373);
+  --subtle-tertiary: rgba(0, 0, 0, 0.0241);
+  --subtle-pressed: rgba(0, 0, 0, 0.06);
+  --ctrl-fill-default: rgba(255, 255, 255, 0.70);
+  --ctrl-fill-disabled: rgba(249, 249, 249, 0.30);
+  --ctrl-fill-secondary: rgba(249, 249, 249, 0.50);
+  --ctrl-fill-tertiary: rgba(249, 249, 249, 0.30);
+  --ctrl-fill-input-active: #FFFFFF;
+  --control-fill-color-input-active: var(--ctrl-fill-input-active);
+  --control-fill-input-active: var(--ctrl-fill-input-active);
+  --ctrl-strong-fill: rgba(0, 0, 0, 0.45);
+  --ctrl-strong-fill-disabled: rgba(0, 0, 0, 0.32);
+  --ctrl-strong-stroke: rgba(0, 0, 0, 0.45);
+  --ctrl-strong-stroke-disabled: rgba(0, 0, 0, 0.22);
+  --ctrl-solid-fill: #FFFFFF;
+  --ctrl-elevation-top: rgba(255, 255, 255, 0.08);
+  --ctrl-elevation-bottom: rgba(0, 0, 0, 0.16);
+  --ControlElevationBorderBrush: linear-gradient(180deg, var(--ctrl-border) 0px, var(--ctrl-border-accent) 2px, var(--ctrl-border-accent) 100%);
+  --accent-base: #0067C0;
+  --accent-hover: rgba(0, 103, 192, 0.90);
+  --accent-pressed: rgba(0, 103, 192, 0.80);
+  --accent-fill-disabled: rgba(0, 0, 0, 0.22);
+  --accent-aa-fill: #004E8C;
+  --accent-aa-text: #FFFFFF;
+  --accent: var(--accent-base);
+  --accent-text: #FFFFFF;
+  --accent-text-secondary: rgba(255, 255, 255, 0.70);
+  --accent-text-fill-color-primary: #0D4897;
+  --TextFillColorPrimaryBrush: rgba(0, 0, 0, 0.89);
+  --TextFillColorSecondaryBrush: rgba(0, 0, 0, 0.62);
+  --TextFillColorDisabledBrush: rgba(0, 0, 0, 0.36);
+  --SystemControlForegroundBaseMediumBrush: rgba(0, 0, 0, 0.60);
+  --SystemControlHighlightAltBaseMediumHighBrush: rgba(0, 0, 0, 0.80);
+  --SystemControlHighlightAltBaseHighBrush: #000000;
+  --SystemControlDisabledBaseMediumLowBrush: rgba(0, 0, 0, 0.40);
+  --TextFillColorInverseBrush: #FFFFFF;
+  --TextOnAccentFillColorPrimaryBrush: #FFFFFF;
+  --TextOnAccentFillColorSecondaryBrush: rgba(255, 255, 255, 0.70);
+  --TextOnAccentFillColorDisabledBrush: #FFFFFF;
+  --ControlFillColorTransparentBrush: transparent;
+  --ControlStrongFillColorDefaultBrush: rgba(0, 0, 0, 0.45);
+  --ControlStrongFillColorDisabledBrush: rgba(0, 0, 0, 0.32);
+  --SubtleFillColorTransparentBrush: transparent;
+  --SubtleFillColorSecondaryBrush: rgba(0, 0, 0, 0.04);
+  --SubtleFillColorTertiaryBrush: var(--subtle-tertiary);
+  --ScrollBarBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarBackgroundPointerOver: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush);
+  --ScrollBarButtonBackgroundPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForeground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForegroundPointerOver: var(--TextFillColorSecondaryBrush);
+  --ScrollBarButtonArrowForegroundPressed: var(--TextFillColorSecondaryBrush);
+  --ScrollBarThumbBackground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPointerOver: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbBorderBrush: var(--ControlFillColorTransparentBrush);
+  --ScrollBarTrackFill: color-mix(in srgb, var(--flyout-bg) 78%, transparent);
+  --ScrollBarTrackStroke: transparent;
+  --AccentFillColorDefaultBrush: #0067C0;
+  --AccentFillColorSecondaryBrush: rgba(0, 103, 192, 0.90);
+  --AccentFillColorTertiaryBrush: rgba(0, 103, 192, 0.80);
+  --AccentFillColorDisabledBrush: rgba(0, 0, 0, 0.22);
+  --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --NavigationViewContentGridBorderBrush: #E5E5E5;
+  /* WinUI LayerFillColorDefault over the no-material base fallback (#F3F3F3). */
+  --NavigationViewContentBackground: #F9F9F9;
+  --SystemFillColorAttentionBrush: #0067C0;
+  --SystemFillColorSuccessBrush: #0F7B0F;
+  --SystemFillColorCautionBrush: #9D5D00;
+  --SystemFillColorCriticalBrush: #C42B1C;
+  --SystemFillColorSolidNeutralBrush: #8A8A8A;
+  --SystemFillColorAttentionBackgroundBrush: rgba(246, 246, 246, 0.50);
+  --SystemFillColorSuccessBackgroundBrush: #DFF6DD;
+  --SystemFillColorCautionBackgroundBrush: #FFF4CE;
+  --SystemFillColorCriticalBackgroundBrush: #FDE7E9;
+  --SystemFillColorSolidNeutralBackgroundBrush: #F3F3F3;
+  --SolidBackgroundFillColorBaseBrush: #F3F3F3;
+  --CardBackgroundFillColorDefaultBrush: rgba(255, 255, 255, 0.70);
+  --CardBackgroundFillColorSecondaryBrush: rgba(246, 246, 246, 0.50);
+  --DividerStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --NavigationViewItemSeparatorForeground: var(--DividerStrokeColorDefaultBrush);
+  --ControlStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --AccentControlElevationBorderBrush: linear-gradient(180deg, var(--accent-border) 0px, var(--accent-border-accent) 2px, var(--accent-border-accent) 100%);
+  --AccentControlElevationBorderBottomBrush: rgba(0, 0, 0, 0.40);
+  --toggle-border: rgba(0, 0, 0, 0.45);
+  --toggle-thumb: rgba(0, 0, 0, 0.61);
+  --toggle-thumb-hover: rgba(0, 0, 0, 0.89);
+  --toggle-on-thumb: #FFFFFF;
+  --radio-border: rgba(0, 0, 0, 0.45);
+  --layer-fill-color-default: var(--layer-default);
+  --layer-on-acrylic-fill-color-default: var(--layer-default);
+  --surface-stroke-color-flyout: var(--stroke-surface-flyout);
+  --subtle-fill-color-secondary: var(--subtle-secondary);
+  --subtle-fill-color-tertiary: var(--subtle-tertiary);
+  --divider-stroke: var(--stroke-divider);
+  --divider-stroke-default: var(--stroke-divider);
+  --divider-stroke-color-default: var(--stroke-divider);
+  --flyout-background: var(--flyout-bg);
+  --host-flyout-bg: var(--flyout-bg);
+  --host-nav-pane-bg: color-mix(in srgb, var(--app-bg) 64%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #202020;
+    --layer-default: rgba(58, 58, 58, 0.30);
+    --dialog-background: #2C2C2C;
+    --dialog-content-bg: rgba(43, 43, 43, 0);
+    --dialog-overlay: var(--SmokeFillColorDefaultBrush, rgba(0, 0, 0, 0.30));
+    --dialog-divider: rgba(0, 0, 0, 0.20);
+    --dialog-button-bg: #202020;
+    --SmokeFillColorDefaultBrush: rgba(0, 0, 0, 0.302);
+    --LayerFillColorAltBrush: rgba(255, 255, 255, 0.051);
+    --ContentDialogCommandSpaceBackground: #202020;
+    --ContentDialogBackground: var(--SolidBackgroundFillColorBaseBrush, #202020);
+    --ContentDialogForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+    --ContentDialogTopOverlay: var(--LayerFillColorAltBrush);
+    --SurfaceStrokeColorDefaultBrush: rgba(117, 117, 117, 0.4);
+    --SurfaceStrokeColorFlyoutBrush: rgba(0, 0, 0, 0.20);
+    --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.0980392);
+    --TeachingTipBackgroundBrush: #282828;
+    --SolidBackgroundFillColorTertiaryBrush: #282828;
+    --flyout-bg: rgba(44, 44, 44, 0.86);
+    --flyout-border: rgba(255, 255, 255, 0.10);
+    --flyout-backdrop: blur(44px) saturate(190%) brightness(1.22) contrast(1.05);
+    --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+    --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+    --ToolTipForegroundBrush: var(--TextFillColorPrimaryBrush);
+    --ToolTipBorderBrush: var(--SurfaceStrokeColorFlyoutBrush, var(--surface-stroke-color-flyout));
+    --card-bg: rgba(255, 255, 255, 0.0512);
+    --card-stroke: rgba(0, 0, 0, 0.10);
+    --card-bg-secondary: rgba(255, 255, 255, 0.0326);
+    --stroke-surface-flyout: rgba(0, 0, 0, 0.20);
+    --stroke-divider: rgba(255, 255, 255, 0.08);
+    --ctrl-border-rest: rgba(0, 0, 0, 0.07);
+    --ctrl-border: rgba(255, 255, 255, 0.0706);
+    --ctrl-border-accent: rgba(255, 255, 255, 0.0941);
+    --accent-border: rgba(0, 0, 0, 0.1373);
+    --accent-border-accent: rgba(255, 255, 255, 0.0784);
+    --ButtonBorderBrushDefaultTop: var(--ctrl-border-accent);
+    --ButtonBorderBrushDefaultBottom: var(--ctrl-border);
+    --AccentButtonBorderBrushDefault: var(--accent-border-accent);
+    --AccentButtonBorderBrushDefaultBottom: var(--accent-border);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.77);
+    --text-tertiary: rgba(255, 255, 255, 0.53);
+    --text-disabled: rgba(255, 255, 255, 0.36);
+    --subtle-transparent: transparent;
+    --subtle-secondary: rgba(255, 255, 255, 0.0605);
+    --subtle-tertiary: rgba(255, 255, 255, 0.0419);
+    --subtle-pressed: rgba(255, 255, 255, 0.03);
+    --ctrl-fill-default: rgba(255, 255, 255, 0.0605);
+    --ctrl-fill-secondary: rgba(255, 255, 255, 0.0837);
+    --ctrl-fill-tertiary: rgba(255, 255, 255, 0.0326);
+    --ctrl-fill-disabled: rgba(255, 255, 255, 0.0419);
+    --ctrl-fill-input-active: rgba(30, 30, 30, 0.70);
+    --control-fill-color-input-active: var(--ctrl-fill-input-active);
+    --control-fill-input-active: var(--ctrl-fill-input-active);
+    --ctrl-strong-fill: rgba(255, 255, 255, 0.54);
+    --ctrl-strong-fill-disabled: rgba(255, 255, 255, 0.25);
+    --ctrl-strong-stroke-disabled: rgba(255, 255, 255, 0.16);
+    --ctrl-strong-stroke: rgba(255, 255, 255, 0.54);
+    --ctrl-solid-fill: #454545;
+    --ctrl-elevation-top: rgba(255, 255, 255, 0.0941);
+    --ctrl-elevation-bottom: rgba(255, 255, 255, 0.0706);
+    --ControlElevationBorderBrush: linear-gradient(180deg, var(--ctrl-border-accent) 0px, var(--ctrl-border-accent) 1px, var(--ctrl-border) 3px, var(--ctrl-border) 100%);
+    --accent-base: #4CC2FF;
+    --accent-hover: rgba(96, 205, 255, 0.90);
+    --accent-pressed: rgba(96, 205, 255, 0.80);
+    --accent-fill-disabled: rgba(255, 255, 255, 0.16);
+    --accent-aa-fill: #79D2FF;
+    --accent-aa-text: #000000;
+    --accent-text: #000000;
+    --accent-text-secondary: rgba(0, 0, 0, 0.50);
+    --accent-text-fill-color-primary: #99EBFF;
+    --TextFillColorPrimaryBrush: #FFFFFF;
+    --TextFillColorSecondaryBrush: rgba(255, 255, 255, 0.77);
+    --TextFillColorDisabledBrush: rgba(255, 255, 255, 0.36);
+    --SystemControlForegroundBaseMediumBrush: rgba(255, 255, 255, 0.60);
+    --SystemControlHighlightAltBaseMediumHighBrush: rgba(255, 255, 255, 0.80);
+    --SystemControlHighlightAltBaseHighBrush: #FFFFFF;
+    --SystemControlDisabledBaseMediumLowBrush: rgba(255, 255, 255, 0.40);
+    --TextFillColorInverseBrush: rgba(0, 0, 0, 0.89);
+    --TextOnAccentFillColorPrimaryBrush: #000000;
+    --TextOnAccentFillColorSecondaryBrush: rgba(0, 0, 0, 0.50);
+    --TextOnAccentFillColorDisabledBrush: rgba(255, 255, 255, 0.53);
+    --ControlFillColorTransparentBrush: transparent;
+    --ControlStrongFillColorDefaultBrush: rgba(255, 255, 255, 0.54);
+    --ControlStrongFillColorDisabledBrush: rgba(255, 255, 255, 0.25);
+    --SubtleFillColorTransparentBrush: transparent;
+    --SubtleFillColorSecondaryBrush: rgba(255, 255, 255, 0.06);
+    --ScrollBarBackground: var(--SubtleFillColorTransparentBrush);
+    --ScrollBarBackgroundPointerOver: var(--SubtleFillColorTransparentBrush);
+    --ScrollBarButtonBackground: var(--SubtleFillColorTransparentBrush);
+    --ScrollBarButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush);
+    --ScrollBarButtonBackgroundPressed: var(--ControlStrongFillColorDefaultBrush);
+    --ScrollBarButtonArrowForeground: var(--ControlStrongFillColorDefaultBrush);
+    --ScrollBarButtonArrowForegroundPointerOver: var(--TextFillColorSecondaryBrush);
+    --ScrollBarButtonArrowForegroundPressed: var(--TextFillColorSecondaryBrush);
+    --ScrollBarThumbBackground: var(--ControlStrongFillColorDefaultBrush);
+    --ScrollBarThumbFillPointerOver: var(--ControlStrongFillColorDefaultBrush);
+    --ScrollBarThumbFillPressed: var(--ControlStrongFillColorDefaultBrush);
+    --ScrollBarThumbBorderBrush: var(--ControlFillColorTransparentBrush);
+    --ScrollBarTrackFill: color-mix(in srgb, var(--flyout-bg) 78%, transparent);
+    --ScrollBarTrackStroke: transparent;
+    --AccentFillColorDefaultBrush: #4CC2FF;
+    --AccentFillColorSecondaryBrush: rgba(76, 194, 255, 0.90);
+    --AccentFillColorTertiaryBrush: rgba(76, 194, 255, 0.80);
+    --AccentFillColorDisabledBrush: rgba(255, 255, 255, 0.16);
+    --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.10);
+    --NavigationViewContentGridBorderBrush: #1D1D1D;
+    /* WinUI LayerFillColorDefault over the no-material base fallback (#202020). */
+    --NavigationViewContentBackground: #282828;
+    --SystemFillColorAttentionBrush: #4CC2FF;
+    --SystemFillColorSuccessBrush: #6CCB5F;
+    --SystemFillColorCautionBrush: #FCE100;
+    --SystemFillColorCriticalBrush: #FF99A4;
+    --SystemFillColorSolidNeutralBrush: #9D9D9D;
+    --SystemFillColorAttentionBackgroundBrush: rgba(255, 255, 255, 0.0314);
+    --SystemFillColorSuccessBackgroundBrush: #393D1B;
+    --SystemFillColorCautionBackgroundBrush: #433519;
+    --SystemFillColorCriticalBackgroundBrush: #442726;
+    --SystemFillColorSolidNeutralBackgroundBrush: #2E2E2E;
+    --SolidBackgroundFillColorBaseBrush: #202020;
+    --CardBackgroundFillColorDefaultBrush: rgba(255, 255, 255, 0.0512);
+    --CardBackgroundFillColorSecondaryBrush: rgba(255, 255, 255, 0.0326);
+    --DividerStrokeColorDefaultBrush: rgba(255, 255, 255, 0.08);
+    --NavigationViewItemSeparatorForeground: var(--DividerStrokeColorDefaultBrush);
+    --ControlStrokeColorDefaultBrush: rgba(255, 255, 255, 0.0706);
+    --AccentControlElevationBorderBrush: linear-gradient(180deg, var(--accent-border-accent) 0px, var(--accent-border) 2px, var(--accent-border) 100%);
+    --AccentControlElevationBorderBottomBrush: rgba(255, 255, 255, 0.0784);
+    --toggle-border: rgba(255, 255, 255, 0.54);
+    --toggle-thumb: rgba(255, 255, 255, 0.79);
+    --toggle-thumb-hover: #FFFFFF;
+    --toggle-on-thumb: #000000;
+    --radio-border: rgba(255, 255, 255, 0.54);
+    --layer-fill-color-default: var(--layer-default);
+    --layer-on-acrylic-fill-color-default: var(--layer-default);
+    --surface-stroke-color-flyout: var(--stroke-surface-flyout);
+    --subtle-fill-color-secondary: var(--subtle-secondary);
+    --subtle-fill-color-tertiary: var(--subtle-tertiary);
+    --divider-stroke: var(--stroke-divider);
+    --divider-stroke-default: var(--stroke-divider);
+    --divider-stroke-color-default: var(--stroke-divider);
+    --flyout-background: var(--flyout-bg);
+    --host-flyout-bg: var(--flyout-bg);
+    --host-nav-pane-bg: color-mix(in srgb, var(--app-bg) 56%, transparent);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--app-bg);
+  transition: --app-bg var(--normal-duration) var(--fast-out-slow-in), --layer-default var(--normal-duration) var(--fast-out-slow-in), --flyout-bg var(--normal-duration) var(--fast-out-slow-in), --card-bg var(--normal-duration) var(--fast-out-slow-in), --card-stroke var(--normal-duration) var(--fast-out-slow-in), --card-bg-secondary var(--normal-duration) var(--fast-out-slow-in), --stroke-surface-flyout var(--normal-duration) var(--fast-out-slow-in), --stroke-divider var(--normal-duration) var(--fast-out-slow-in), --ctrl-border-rest var(--normal-duration) var(--fast-out-slow-in), --ctrl-border var(--normal-duration) var(--fast-out-slow-in), --ctrl-border-accent var(--normal-duration) var(--fast-out-slow-in), --accent-border var(--normal-duration) var(--fast-out-slow-in), --accent-border-accent var(--normal-duration) var(--fast-out-slow-in), --text-primary var(--normal-duration) var(--fast-out-slow-in), --text-secondary var(--normal-duration) var(--fast-out-slow-in), --text-tertiary var(--normal-duration) var(--fast-out-slow-in), --text-disabled var(--normal-duration) var(--fast-out-slow-in), --subtle-secondary var(--normal-duration) var(--fast-out-slow-in), --subtle-tertiary var(--normal-duration) var(--fast-out-slow-in), --subtle-pressed var(--normal-duration) var(--fast-out-slow-in), --ctrl-fill-default var(--normal-duration) var(--fast-out-slow-in), --ctrl-fill-secondary var(--normal-duration) var(--fast-out-slow-in), --ctrl-fill-tertiary var(--normal-duration) var(--fast-out-slow-in), --ctrl-fill-disabled var(--normal-duration) var(--fast-out-slow-in), --ctrl-strong-fill var(--normal-duration) var(--fast-out-slow-in), --ctrl-strong-fill-disabled var(--normal-duration) var(--fast-out-slow-in), --ctrl-strong-stroke var(--normal-duration) var(--fast-out-slow-in), --ctrl-strong-stroke-disabled var(--normal-duration) var(--fast-out-slow-in), --ctrl-solid-fill var(--normal-duration) var(--fast-out-slow-in), --ctrl-elevation-top var(--normal-duration) var(--fast-out-slow-in), --ctrl-elevation-bottom var(--normal-duration) var(--fast-out-slow-in), --accent-base var(--normal-duration) var(--fast-out-slow-in), --accent-hover var(--normal-duration) var(--fast-out-slow-in), --accent-pressed var(--normal-duration) var(--fast-out-slow-in), --accent-fill-disabled var(--normal-duration) var(--fast-out-slow-in), --accent-text var(--normal-duration) var(--fast-out-slow-in), --accent-text-secondary var(--normal-duration) var(--fast-out-slow-in), --toggle-border var(--normal-duration) var(--fast-out-slow-in), --toggle-thumb var(--normal-duration) var(--fast-out-slow-in), --toggle-thumb-hover var(--normal-duration) var(--fast-out-slow-in), --toggle-on-thumb var(--normal-duration) var(--fast-out-slow-in), --radio-border var(--normal-duration) var(--fast-out-slow-in);
+}
+
+.gallery-item-page,
+.gallery-home-page {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+}
+
+.gallery-item-page {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 36px 36px;
+}
+
+.gallery-item-page > .page-heading {
+  margin: 0;
+}
+
+.gallery-page-scroll,
+.gallery-home-scroll {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.gallery-page-scroll .scroll-content,
+.gallery-home-scroll .scroll-content {
+  width: 100%;
+  min-width: 0;
+}
+
+.gallery-page-content {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+/* PageHeader owns the page title and actions. Keep each page's description. */
+.page-view.has-page-header .page-heading.page-header,
+.page-view.has-page-header .page-heading > .page-header,
+.page-view.has-page-header .page-heading > h1.page-header,
+.page-view.has-page-header .page-heading .page-title,
+.page-view.has-page-header .page-heading .page-header-actions,
+.page-view.has-page-header .page-heading .header-actions,
+.page-view.has-page-header .page-heading .page-actions,
+.page-view.has-page-header .gallery-page-content > .win-text-block.page-header,
+.page-view.has-page-header .gallery-page-content > h1.page-header {
+  display: none !important;
+}
+
+.page-view.has-page-header .gallery-item-page {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .gallery-item-page {
+    padding: 12px 16px 16px;
+  }
+}
+
+.icon {
+  font-weight: normal;
+}
+
+html.theme-light,
+.example-theme-wrapper.theme-light,
+.win-theme-scope.theme-light {
+  --app-bg: #F3F3F3;
+  --layer-default: rgba(255, 255, 255, 0.50);
+  --dialog-background: #FCFCFC;
+  --dialog-content-bg: rgba(255, 255, 255, 0.95);
+  --dialog-overlay: rgba(0, 0, 0, 0.30);
+  --dialog-divider: rgba(0, 0, 0, 0.06);
+  --dialog-button-bg: #F3F3F3;
+  --flyout-bg: rgba(252, 252, 252, 0.92);
+  --flyout-border: rgba(0, 0, 0, 0.06);
+  --flyout-backdrop: blur(30px) saturate(160%) brightness(1.02);
+  --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+  --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+  --ToolTipForegroundBrush: var(--TextFillColorPrimaryBrush);
+  --ToolTipBorderBrush: var(--SurfaceStrokeColorFlyoutBrush, var(--surface-stroke-color-flyout));
+  --card-bg: rgba(255, 255, 255, 0.70);
+  --card-stroke: rgba(0, 0, 0, 0.06);
+  --card-bg-secondary: rgba(246, 246, 246, 0.50);
+  --stroke-surface-flyout: rgba(0, 0, 0, 0.06);
+  --stroke-divider: rgba(0, 0, 0, 0.06);
+  --ctrl-border-rest: rgba(0, 0, 0, 0.06);
+  --ctrl-border: rgba(0, 0, 0, 0.06);
+  --ctrl-border-accent: rgba(0, 0, 0, 0.16);
+  --accent-border: rgba(255, 255, 255, 0.08);
+  --accent-border-accent: rgba(0, 0, 0, 0.40);
+  --ButtonBorderBrushDefaultTop: var(--ctrl-border);
+  --ButtonBorderBrushDefaultBottom: var(--ctrl-border-accent);
+  --AccentButtonBorderBrushDefault: var(--accent-border);
+  --AccentButtonBorderBrushDefaultBottom: var(--accent-border-accent);
+  --text-primary: rgba(0, 0, 0, 0.89);
+  --text-secondary: rgba(0, 0, 0, 0.62);
+  --text-tertiary: rgba(0, 0, 0, 0.45);
+  --text-disabled: rgba(0, 0, 0, 0.36);
+  --subtle-transparent: transparent;
+  --subtle-secondary: rgba(0, 0, 0, 0.0373);
+  --subtle-tertiary: rgba(0, 0, 0, 0.0241);
+  --subtle-pressed: rgba(0, 0, 0, 0.06);
+  --ctrl-fill-default: rgba(255, 255, 255, 0.70);
+  --ctrl-fill-secondary: rgba(249, 249, 249, 0.50);
+  --ctrl-fill-tertiary: rgba(249, 249, 249, 0.30);
+  --ctrl-fill-disabled: rgba(249, 249, 249, 0.30);
+  --ctrl-fill-input-active: #FFFFFF;
+  --control-fill-color-input-active: var(--ctrl-fill-input-active);
+  --control-fill-input-active: var(--ctrl-fill-input-active);
+  --ctrl-strong-fill: rgba(0, 0, 0, 0.45);
+  --ctrl-strong-fill-disabled: rgba(0, 0, 0, 0.32);
+  --ctrl-strong-stroke: rgba(0, 0, 0, 0.45);
+  --ctrl-strong-stroke-disabled: rgba(0, 0, 0, 0.22);
+  --ctrl-solid-fill: #FFFFFF;
+  --ctrl-elevation-top: rgba(255, 255, 255, 0.08);
+  --ctrl-elevation-bottom: rgba(0, 0, 0, 0.16);
+  --ControlElevationBorderBrush: linear-gradient(180deg, var(--ctrl-border) 0px, var(--ctrl-border-accent) 2px, var(--ctrl-border-accent) 100%);
+  --accent-base: #0067C0;
+  --accent-hover: rgba(0, 103, 192, 0.90);
+  --accent-pressed: rgba(0, 103, 192, 0.80);
+  --accent-fill-disabled: rgba(0, 0, 0, 0.22);
+  --accent-aa-fill: #004E8C;
+  --accent-aa-text: #FFFFFF;
+  --accent-text: #FFFFFF;
+  --accent-text-secondary: rgba(255, 255, 255, 0.70);
+  --accent-text-fill-color-primary: #0D4897;
+  --TextFillColorPrimaryBrush: rgba(0, 0, 0, 0.89);
+  --TextFillColorSecondaryBrush: rgba(0, 0, 0, 0.62);
+  --TextFillColorDisabledBrush: rgba(0, 0, 0, 0.36);
+  --SystemControlForegroundBaseMediumBrush: rgba(0, 0, 0, 0.60);
+  --SystemControlHighlightAltBaseMediumHighBrush: rgba(0, 0, 0, 0.80);
+  --SystemControlHighlightAltBaseHighBrush: #000000;
+  --SystemControlDisabledBaseMediumLowBrush: rgba(0, 0, 0, 0.40);
+  --TextFillColorInverseBrush: #FFFFFF;
+  --TextOnAccentFillColorPrimaryBrush: #FFFFFF;
+  --TextOnAccentFillColorSecondaryBrush: rgba(255, 255, 255, 0.70);
+  --TextOnAccentFillColorDisabledBrush: #FFFFFF;
+  --ControlFillColorTransparentBrush: transparent;
+  --ControlStrongFillColorDefaultBrush: rgba(0, 0, 0, 0.45);
+  --ControlStrongFillColorDisabledBrush: rgba(0, 0, 0, 0.32);
+  --SubtleFillColorTransparentBrush: transparent;
+  --SubtleFillColorSecondaryBrush: rgba(0, 0, 0, 0.04);
+  --ScrollBarBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarBackgroundPointerOver: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush);
+  --ScrollBarButtonBackgroundPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForeground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForegroundPointerOver: var(--TextFillColorSecondaryBrush);
+  --ScrollBarButtonArrowForegroundPressed: var(--TextFillColorSecondaryBrush);
+  --ScrollBarThumbBackground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPointerOver: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbBorderBrush: var(--ControlFillColorTransparentBrush);
+  --ScrollBarTrackFill: color-mix(in srgb, var(--flyout-bg) 78%, transparent);
+  --ScrollBarTrackStroke: transparent;
+  --AccentFillColorDefaultBrush: #0067C0;
+  --AccentFillColorSecondaryBrush: rgba(0, 103, 192, 0.90);
+  --AccentFillColorTertiaryBrush: rgba(0, 103, 192, 0.80);
+  --AccentFillColorDisabledBrush: rgba(0, 0, 0, 0.22);
+  --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --NavigationViewContentGridBorderBrush: #E5E5E5;
+  --NavigationViewContentBackground: #F9F9F9;
+  --SystemFillColorAttentionBrush: #0067C0;
+  --SystemFillColorSuccessBrush: #0F7B0F;
+  --SystemFillColorCautionBrush: #9D5D00;
+  --SystemFillColorCriticalBrush: #C42B1C;
+  --SystemFillColorSolidNeutralBrush: #8A8A8A;
+  --SystemFillColorAttentionBackgroundBrush: rgba(246, 246, 246, 0.50);
+  --SystemFillColorSuccessBackgroundBrush: #DFF6DD;
+  --SystemFillColorCautionBackgroundBrush: #FFF4CE;
+  --SystemFillColorCriticalBackgroundBrush: #FDE7E9;
+  --SystemFillColorSolidNeutralBackgroundBrush: #F3F3F3;
+  --SolidBackgroundFillColorBaseBrush: #F3F3F3;
+  --CardBackgroundFillColorDefaultBrush: rgba(255, 255, 255, 0.70);
+  --CardBackgroundFillColorSecondaryBrush: rgba(246, 246, 246, 0.50);
+  --DividerStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --NavigationViewItemSeparatorForeground: var(--DividerStrokeColorDefaultBrush);
+  --ControlStrokeColorDefaultBrush: rgba(0, 0, 0, 0.06);
+  --AccentControlElevationBorderBrush: linear-gradient(180deg, var(--accent-border) 0px, var(--accent-border-accent) 2px, var(--accent-border-accent) 100%);
+  --AccentControlElevationBorderBottomBrush: rgba(0, 0, 0, 0.40);
+  --toggle-border: rgba(0, 0, 0, 0.45);
+  --toggle-thumb: rgba(0, 0, 0, 0.61);
+  --toggle-thumb-hover: rgba(0, 0, 0, 0.89);
+  --toggle-on-thumb: #FFFFFF;
+  --radio-border: rgba(0, 0, 0, 0.45);
+  --layer-fill-color-default: var(--layer-default);
+  --layer-on-acrylic-fill-color-default: var(--layer-default);
+  --surface-stroke-color-flyout: var(--stroke-surface-flyout);
+  --subtle-fill-color-secondary: var(--subtle-secondary);
+  --subtle-fill-color-tertiary: var(--subtle-tertiary);
+  --divider-stroke: var(--stroke-divider);
+  --divider-stroke-default: var(--stroke-divider);
+  --divider-stroke-color-default: var(--stroke-divider);
+  --flyout-background: var(--flyout-bg);
+  --host-flyout-bg: var(--flyout-bg);
+  --host-nav-pane-bg: color-mix(in srgb, var(--app-bg) 64%, transparent);
+
+  /* 强制主题时补全基础令牌(与跟随系统模式保持一致) */
+  --faster-duration: 0.083s;
+  --fast-duration: 0.167s;
+  --normal-duration: 0.200s;
+  --fast-out-slow-in: cubic-bezier(0, 0, 0, 1);
+  --SmokeFillColorDefaultBrush: rgba(0, 0, 0, 0.302);
+  --LayerFillColorAltBrush: #FFFFFF;
+  --ContentDialogCommandSpaceBackground: #F3F3F3;
+  --OverlayCornerRadius: 8px;
+  --FlyoutThemeMinWidth: 96px;
+  --FlyoutThemeMaxWidth: 456px;
+  --FlyoutThemeMinHeight: 40px;
+  --FlyoutThemeMaxHeight: 758px;
+  --FlyoutContentPadding: 15px 16px 17px 16px;
+  --ContentDialogBackground: var(--SolidBackgroundFillColorBaseBrush, #F3F3F3);
+  --ContentDialogForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --ContentDialogBorderBrush: var(--SurfaceStrokeColorDefaultBrush, var(--flyout-border));
+  --ContentDialogSeparatorBorderBrush: var(--CardStrokeColorDefaultBrush, var(--card-stroke));
+  --ContentDialogBorderWidth: 1px;
+  --ContentDialogMinWidth: 320px;
+  --ContentDialogMaxWidth: 548px;
+  --ContentDialogMinHeight: 184px;
+  --ContentDialogMaxHeight: 756px;
+  --ContentDialogTopOverlay: var(--LayerFillColorAltBrush);
+  --SurfaceStrokeColorDefaultBrush: rgba(117, 117, 117, 0.4);
+  --SurfaceStrokeColorFlyoutBrush: rgba(0, 0, 0, 0.0588235);
+  --ContentDialogPadding: 24px;
+  --TeachingTipBackgroundBrush: var(--SolidBackgroundFillColorTertiaryBrush, #F9F9F9);
+  --TeachingTipBorderBrush: var(--SurfaceStrokeColorDefaultBrush, var(--ControlStrokeColorDefaultBrush, var(--flyout-border)));
+  --TeachingTipTransientBackground: var(--AcrylicInAppFillColorDefaultBrush, var(--flyout-bg));
+  --TeachingTipForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipTitleForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipSubtitleForegroundBrush: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipAlternateCloseButtonSize: 40px;
+  --TeachingTipAlternateCloseButtonGlyphSize: 16px;
+  --TeachingTipAlternateCloseButtonBackground: transparent;
+  --TeachingTipAlternateCloseButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary));
+  --TeachingTipAlternateCloseButtonBackgroundPressed: var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary));
+  --TeachingTipAlternateCloseButtonForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --TeachingTipAlternateCloseButtonBorderBrush: transparent;
+  --TeachingTipAlternateCloseButtonBorderBrushPointerOver: var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary));
+  --TeachingTipAlternateCloseButtonBorderBrushPressed: var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary));
+  --SolidBackgroundFillColorTertiaryBrush: #F9F9F9;
+  --accent: var(--accent-base);
+  --SubtleFillColorTertiaryBrush: var(--subtle-tertiary);
+}
+
+.win-content-dialog-overlay.theme-light {
+  --dialog-background: #FCFCFC;
+  --dialog-content-bg: rgba(255, 255, 255, 0.95);
+  --dialog-overlay: rgba(0, 0, 0, 0.30);
+  --dialog-divider: rgba(0, 0, 0, 0.06);
+  --dialog-button-bg: #F3F3F3;
+  --flyout-bg: rgba(252, 252, 252, 0.92);
+  --flyout-border: rgba(0, 0, 0, 0.06);
+  --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+  --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+}
+
+html.theme-dark,
+.example-theme-wrapper.theme-dark,
+.win-theme-scope.theme-dark {
+  --app-bg: #202020;
+  --layer-default: rgba(58, 58, 58, 0.30);
+  --dialog-background: #2C2C2C;
+  --flyout-bg: rgba(44, 44, 44, 0.86);
+  --flyout-border: rgba(255, 255, 255, 0.10);
+  --flyout-backdrop: blur(44px) saturate(190%) brightness(1.22) contrast(1.05);
+  --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+  --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+  --ToolTipForegroundBrush: var(--TextFillColorPrimaryBrush);
+  --ToolTipBorderBrush: var(--SurfaceStrokeColorFlyoutBrush, var(--surface-stroke-color-flyout));
+  --dialog-content-bg: rgba(43, 43, 43, 0);
+  --dialog-overlay: rgba(0, 0, 0, 0.30);
+  --dialog-divider: rgba(0, 0, 0, 0.20);
+  --dialog-button-bg: #202020;
+  --TeachingTipBackgroundBrush: #282828;
+  --card-bg: rgba(255, 255, 255, 0.0512);
+  --card-stroke: rgba(0, 0, 0, 0.10);
+  --card-bg-secondary: rgba(255, 255, 255, 0.0326);
+  --stroke-surface-flyout: rgba(0, 0, 0, 0.20);
+  --stroke-divider: rgba(255, 255, 255, 0.08);
+  --ctrl-border-rest: rgba(0, 0, 0, 0.07);
+  --ctrl-border: rgba(255, 255, 255, 0.0706);
+  --ctrl-border-accent: rgba(255, 255, 255, 0.0941);
+  --accent-border: rgba(0, 0, 0, 0.1373);
+  --accent-border-accent: rgba(255, 255, 255, 0.0784);
+  --ButtonBorderBrushDefaultTop: var(--ctrl-border-accent);
+  --ButtonBorderBrushDefaultBottom: var(--ctrl-border);
+  --AccentButtonBorderBrushDefault: var(--accent-border-accent);
+  --AccentButtonBorderBrushDefaultBottom: var(--accent-border);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.77);
+  --text-tertiary: rgba(255, 255, 255, 0.53);
+  --text-disabled: rgba(255, 255, 255, 0.36);
+  --subtle-transparent: transparent;
+  --subtle-secondary: rgba(255, 255, 255, 0.0605);
+  --subtle-tertiary: rgba(255, 255, 255, 0.0419);
+  --subtle-pressed: rgba(255, 255, 255, 0.03);
+  --ctrl-fill-default: rgba(255, 255, 255, 0.0605);
+  --ctrl-fill-secondary: rgba(255, 255, 255, 0.0837);
+  --ctrl-fill-tertiary: rgba(255, 255, 255, 0.0326);
+  --ctrl-fill-disabled: rgba(255, 255, 255, 0.0419);
+  --ctrl-fill-input-active: rgba(30, 30, 30, 0.70);
+  --control-fill-color-input-active: var(--ctrl-fill-input-active);
+  --control-fill-input-active: var(--ctrl-fill-input-active);
+  --ctrl-strong-fill: rgba(255, 255, 255, 0.54);
+  --ctrl-strong-fill-disabled: rgba(255, 255, 255, 0.25);
+  --ctrl-strong-stroke: rgba(255, 255, 255, 0.54);
+  --ctrl-strong-stroke-disabled: rgba(255, 255, 255, 0.16);
+  --ctrl-solid-fill: #454545;
+  --ctrl-elevation-top: rgba(255, 255, 255, 0.0941);
+  --ctrl-elevation-bottom: rgba(255, 255, 255, 0.0706);
+  --ControlElevationBorderBrush: linear-gradient(180deg, var(--ctrl-border-accent) 0px, var(--ctrl-border-accent) 1px, var(--ctrl-border) 3px, var(--ctrl-border) 100%);
+  --accent-base: #4CC2FF;
+  --accent-hover: rgba(96, 205, 255, 0.90);
+  --accent-pressed: rgba(96, 205, 255, 0.80);
+  --accent-fill-disabled: rgba(255, 255, 255, 0.16);
+  --accent-aa-fill: #79D2FF;
+  --accent-aa-text: #000000;
+  --accent-text: #000000;
+  --accent-text-secondary: rgba(0, 0, 0, 0.50);
+  --accent-text-fill-color-primary: #99EBFF;
+  --TextFillColorPrimaryBrush: #FFFFFF;
+  --TextFillColorSecondaryBrush: rgba(255, 255, 255, 0.77);
+  --TextFillColorDisabledBrush: rgba(255, 255, 255, 0.36);
+  --SystemControlForegroundBaseMediumBrush: rgba(255, 255, 255, 0.60);
+  --SystemControlHighlightAltBaseMediumHighBrush: rgba(255, 255, 255, 0.80);
+  --SystemControlHighlightAltBaseHighBrush: #FFFFFF;
+  --SystemControlDisabledBaseMediumLowBrush: rgba(255, 255, 255, 0.40);
+  --TextFillColorInverseBrush: rgba(0, 0, 0, 0.89);
+  --TextOnAccentFillColorPrimaryBrush: #000000;
+  --TextOnAccentFillColorSecondaryBrush: rgba(0, 0, 0, 0.50);
+  --TextOnAccentFillColorDisabledBrush: rgba(255, 255, 255, 0.53);
+  --ControlFillColorTransparentBrush: transparent;
+  --ControlStrongFillColorDefaultBrush: rgba(255, 255, 255, 0.54);
+  --ControlStrongFillColorDisabledBrush: rgba(255, 255, 255, 0.25);
+  --SubtleFillColorTransparentBrush: transparent;
+  --SubtleFillColorSecondaryBrush: rgba(255, 255, 255, 0.06);
+  --ScrollBarBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarBackgroundPointerOver: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackground: var(--SubtleFillColorTransparentBrush);
+  --ScrollBarButtonBackgroundPointerOver: var(--SubtleFillColorSecondaryBrush);
+  --ScrollBarButtonBackgroundPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForeground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarButtonArrowForegroundPointerOver: var(--TextFillColorSecondaryBrush);
+  --ScrollBarButtonArrowForegroundPressed: var(--TextFillColorSecondaryBrush);
+  --ScrollBarThumbBackground: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPointerOver: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbFillPressed: var(--ControlStrongFillColorDefaultBrush);
+  --ScrollBarThumbBorderBrush: var(--ControlFillColorTransparentBrush);
+  --ScrollBarTrackFill: color-mix(in srgb, var(--flyout-bg) 78%, transparent);
+  --ScrollBarTrackStroke: transparent;
+  --AccentFillColorDefaultBrush: #4CC2FF;
+  --AccentFillColorSecondaryBrush: rgba(76, 194, 255, 0.90);
+  --AccentFillColorTertiaryBrush: rgba(76, 194, 255, 0.80);
+  --AccentFillColorDisabledBrush: rgba(255, 255, 255, 0.16);
+  --CardStrokeColorDefaultBrush: rgba(0, 0, 0, 0.10);
+  --NavigationViewContentGridBorderBrush: #1D1D1D;
+  --NavigationViewContentBackground: #282828;
+  --SystemFillColorAttentionBrush: #4CC2FF;
+  --SystemFillColorSuccessBrush: #6CCB5F;
+  --SystemFillColorCautionBrush: #FCE100;
+  --SystemFillColorCriticalBrush: #FF99A4;
+  --SystemFillColorSolidNeutralBrush: #9D9D9D;
+  --SystemFillColorAttentionBackgroundBrush: rgba(255, 255, 255, 0.0314);
+  --SystemFillColorSuccessBackgroundBrush: #393D1B;
+  --SystemFillColorCautionBackgroundBrush: #433519;
+  --SystemFillColorCriticalBackgroundBrush: #442726;
+  --SystemFillColorSolidNeutralBackgroundBrush: #2E2E2E;
+  --SolidBackgroundFillColorBaseBrush: #202020;
+  --CardBackgroundFillColorDefaultBrush: rgba(255, 255, 255, 0.0512);
+  --CardBackgroundFillColorSecondaryBrush: rgba(255, 255, 255, 0.0326);
+  --DividerStrokeColorDefaultBrush: rgba(255, 255, 255, 0.08);
+  --NavigationViewItemSeparatorForeground: var(--DividerStrokeColorDefaultBrush);
+  --ControlStrokeColorDefaultBrush: rgba(255, 255, 255, 0.0706);
+  --AccentControlElevationBorderBrush: linear-gradient(180deg, var(--accent-border-accent) 0px, var(--accent-border) 2px, var(--accent-border) 100%);
+  --AccentControlElevationBorderBottomBrush: rgba(255, 255, 255, 0.0784);
+  --toggle-border: rgba(255, 255, 255, 0.54);
+  --toggle-thumb: rgba(255, 255, 255, 0.79);
+  --toggle-thumb-hover: #FFFFFF;
+  --toggle-on-thumb: #000000;
+  --radio-border: rgba(255, 255, 255, 0.54);
+  --layer-fill-color-default: var(--layer-default);
+  --layer-on-acrylic-fill-color-default: var(--layer-default);
+  --surface-stroke-color-flyout: var(--stroke-surface-flyout);
+  --subtle-fill-color-secondary: var(--subtle-secondary);
+  --subtle-fill-color-tertiary: var(--subtle-tertiary);
+  --divider-stroke: var(--stroke-divider);
+  --divider-stroke-default: var(--stroke-divider);
+  --divider-stroke-color-default: var(--stroke-divider);
+  --flyout-background: var(--flyout-bg);
+  --host-flyout-bg: var(--flyout-bg);
+  --host-nav-pane-bg: color-mix(in srgb, var(--app-bg) 56%, transparent);
+
+  /* 强制主题时补全基础令牌(与跟随系统模式保持一致) */
+  --SmokeFillColorDefaultBrush: rgba(0, 0, 0, 0.302);
+  --LayerFillColorAltBrush: rgba(255, 255, 255, 0.051);
+  --ContentDialogCommandSpaceBackground: #202020;
+  --ContentDialogBackground: var(--SolidBackgroundFillColorBaseBrush, #202020);
+  --ContentDialogForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --ContentDialogTopOverlay: var(--LayerFillColorAltBrush);
+  --SurfaceStrokeColorDefaultBrush: rgba(117, 117, 117, 0.4);
+  --SurfaceStrokeColorFlyoutBrush: rgba(0, 0, 0, 0.20);
+  --SolidBackgroundFillColorTertiaryBrush: #282828;
+}
+
+.win-content-dialog-overlay.theme-dark {
+  --dialog-background: #2C2C2C;
+  --dialog-content-bg: rgba(43, 43, 43, 0);
+  --dialog-overlay: rgba(0, 0, 0, 0.30);
+  --dialog-divider: rgba(0, 0, 0, 0.20);
+  --dialog-button-bg: #202020;
+  --flyout-bg: rgba(44, 44, 44, 0.86);
+  --flyout-border: rgba(255, 255, 255, 0.10);
+  --AcrylicInAppFillColorDefaultBrush: var(--flyout-bg);
+  --ToolTipBackgroundBrush: var(--AcrylicInAppFillColorDefaultBrush);
+}
+
+/* Chromium keeps backdrop sampling reliable when the tint is painted in a
+   separate layer inside an isolated stacking context. */
+:where(
+  .win-asb-popup,
+  .win-combo-flyout,
+  .picker-flyout,
+  .win-commandbar-flyout,
+  .win-flyout,
+  .win-menu-flyout,
+  .win-menu-submenu-flyout,
+  .win-number-compact-popup,
+  .win-teaching-tip,
+  .win-tooltip
+) {
+  --win-acrylic-fill: var(--flyout-background, var(--flyout-bg));
+  isolation: isolate;
+  background: transparent !important;
+}
+
+:where(
+  .win-asb-popup,
+  .win-combo-flyout,
+  .picker-flyout,
+  .win-commandbar-flyout,
+  .win-flyout,
+  .win-menu-flyout,
+  .win-menu-submenu-flyout,
+  .win-number-compact-popup,
+  .win-teaching-tip,
+  .win-tooltip
+)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--win-acrylic-fill);
+}
+
+.win-tooltip {
+  z-index: var(--win-tooltip-z-index, var(--win-tip-z-index, 2147483647));
+  --win-acrylic-fill: color-mix(
+    in srgb,
+    var(--ToolTipBackgroundBrush, var(--AcrylicInAppFillColorDefaultBrush, var(--flyout-bg))) 78%,
+    transparent
+  );
+}
+
+.win-teaching-tip {
+  z-index: var(--win-teaching-tip-z-index, var(--win-tip-z-index, 2147483646));
+}
+
+html .basic-input-example-theme:has(.example-display[data-theme='light']) .example-container {
+  --card-bg: #FEFEFE;
+  --CardBackgroundFillColorDefaultBrush: #FEFEFE;
+}
+
+.example-theme-wrapper.theme-light,
+.win-theme-scope.theme-light,
+html .basic-input-example-theme:has(.example-display[data-theme='light']) .example-container {
+  --accent-text-fill-color-primary: #0D4897;
+}
+
+.example-theme-wrapper.theme-dark,
+.win-theme-scope.theme-dark,
+html .basic-input-example-theme:has(.example-display[data-theme='dark']) .example-container {
+  --accent-text-fill-color-primary: #99EBFF;
+}
+
+.page-header-actions > .header-action,
+.header-actions > .header-action,
+.page-actions > .header-action {
+  height: 32px;
+  min-height: 32px;
+}
+
+/* ==================== Button.vue ==================== */
+.win-btn {
+    position: relative;
+    box-sizing: border-box;
+    border-left: var(--ButtonBorderThemeThickness) solid var(--ButtonBorderBrushCurrent);
+    border-top: var(--ButtonBorderThemeThickness) solid var(--ButtonBorderBrushTopCurrent);
+    border-right: var(--ButtonBorderThemeThickness) solid var(--ButtonBorderBrushCurrent);
+    border-bottom: var(--ButtonBorderThemeThickness) solid var(--ButtonBorderBrushBottomCurrent);
+    border-radius: var(--ButtonCornerRadius);
+    padding: var(--ButtonPadding, 5px 11px 6px);
+    font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+    font-size: var(--ControlContentThemeFontSize, 14px);
+    font-weight: normal;
+    min-height: 32px;
+    height: auto;
+    background: padding-box var(--ButtonBackgroundCurrent);
+    color: var(--ButtonForegroundCurrent);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background var(--fast-duration) var(--fast-out-slow-in), color var(--fast-duration);
+    user-select: none;
+    --ButtonPadding: 5px 11px 6px;
+    --ButtonBorderThemeThickness: 1px;
+    --ButtonCornerRadius: 4px;
+    --ButtonBackground: var(--ctrl-fill-default);
+    --ButtonBackgroundPointerOver: var(--ctrl-fill-secondary);
+    --ButtonBackgroundPressed: var(--ctrl-fill-tertiary);
+    --ButtonBackgroundDisabled: var(--ctrl-fill-disabled);
+    --ButtonForeground: var(--text-primary);
+    --ButtonForegroundPointerOver: var(--text-primary);
+    --ButtonForegroundPressed: var(--text-secondary);
+    --ButtonForegroundDisabled: var(--text-disabled);
+    --ButtonBorderBrush: var(--ControlStrokeColorDefaultBrush, var(--ctrl-border));
+    --ButtonBorderBrushTop: var(--ButtonBorderBrushDefaultTop, var(--ButtonBorderBrush));
+    --ButtonBorderBrushBottom: var(--ButtonBorderBrushDefaultBottom, var(--ctrl-border-accent));
+    --ButtonBorderBrushPointerOver: var(--ButtonBorderBrush);
+    --ButtonBorderBrushPointerOverTop: var(--ButtonBorderBrushTop);
+    --ButtonBorderBrushPointerOverBottom: var(--ButtonBorderBrushBottom);
+    --ButtonBorderBrushPressed: var(--ControlStrokeColorDefaultBrush);
+    --ButtonBorderBrushPressedTop: var(--ButtonBorderBrushPressed);
+    --ButtonBorderBrushPressedBottom: var(--ButtonBorderBrushPressed);
+    --ButtonBorderBrushDisabled: var(--ControlStrokeColorDefaultBrush);
+    --ButtonBorderBrushDisabledTop: var(--ButtonBorderBrushDisabled);
+    --ButtonBorderBrushDisabledBottom: var(--ButtonBorderBrushDisabled);
+    --ButtonBackgroundCurrent: var(--ButtonBackground);
+    --ButtonForegroundCurrent: var(--ButtonForeground);
+    --ButtonBorderBrushCurrent: var(--ButtonBorderBrush);
+    --ButtonBorderBrushTopCurrent: var(--ButtonBorderBrushTop);
+    --ButtonBorderBrushBottomCurrent: var(--ButtonBorderBrushBottom);
+  }
+
+    .win-btn:hover {
+      --ButtonBackgroundCurrent: var(--ButtonBackgroundPointerOver);
+      --ButtonForegroundCurrent: var(--ButtonForegroundPointerOver);
+      --ButtonBorderBrushCurrent: var(--ButtonBorderBrushPointerOver);
+      --ButtonBorderBrushTopCurrent: var(--ButtonBorderBrushPointerOverTop);
+      --ButtonBorderBrushBottomCurrent: var(--ButtonBorderBrushPointerOverBottom);
+    }
+
+    .win-btn:active {
+      --ButtonBackgroundCurrent: var(--ButtonBackgroundPressed);
+      --ButtonForegroundCurrent: var(--ButtonForegroundPressed);
+      --ButtonBorderBrushCurrent: var(--ButtonBorderBrushPressed);
+      --ButtonBorderBrushTopCurrent: var(--ButtonBorderBrushPressedTop);
+      --ButtonBorderBrushBottomCurrent: var(--ButtonBorderBrushPressedBottom);
+    }
+
+    .win-btn:disabled {
+      --ButtonBackgroundCurrent: var(--ButtonBackgroundDisabled);
+      --ButtonForegroundCurrent: var(--ButtonForegroundDisabled);
+      --ButtonBorderBrushCurrent: var(--ButtonBorderBrushDisabled);
+      --ButtonBorderBrushTopCurrent: var(--ButtonBorderBrushDisabledTop);
+      --ButtonBorderBrushBottomCurrent: var(--ButtonBorderBrushDisabledBottom);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .win-btn.AccentButtonStyle {
+      --ButtonBackground: var(--AccentButtonBackground);
+      --ButtonBackgroundPointerOver: var(--AccentButtonBackgroundPointerOver);
+      --ButtonBackgroundPressed: var(--AccentButtonBackgroundPressed);
+      --ButtonBackgroundDisabled: var(--AccentButtonBackgroundDisabled);
+      --ButtonForeground: var(--AccentButtonForeground);
+      --ButtonForegroundPointerOver: var(--AccentButtonForegroundPointerOver);
+      --ButtonForegroundPressed: var(--AccentButtonForegroundPressed);
+      --ButtonForegroundDisabled: var(--AccentButtonForegroundDisabled);
+      --ButtonBorderBrush: var(--AccentButtonBorderBrush);
+      --ButtonBorderBrushTop: var(--AccentButtonBorderBrush);
+      --ButtonBorderBrushBottom: var(--AccentButtonBorderBrushBottom);
+      --ButtonBorderBrushPointerOver: var(--AccentButtonBorderBrushPointerOver);
+      --ButtonBorderBrushPointerOverTop: var(--AccentButtonBorderBrushPointerOver);
+      --ButtonBorderBrushPointerOverBottom: var(--AccentButtonBorderBrushPointerOverBottom);
+      --ButtonBorderBrushPressed: var(--AccentButtonBorderBrushPressed);
+      --ButtonBorderBrushPressedTop: var(--AccentButtonBorderBrushPressed);
+      --ButtonBorderBrushPressedBottom: var(--AccentButtonBorderBrushPressed);
+      --ButtonBorderBrushDisabled: var(--AccentButtonBorderBrushDisabled);
+      --ButtonBorderBrushDisabledTop: var(--AccentButtonBorderBrushDisabled);
+      --ButtonBorderBrushDisabledBottom: var(--AccentButtonBorderBrushDisabled);
+      --AccentButtonBackground: var(--accent-base);
+      --AccentButtonBackgroundPointerOver: var(--accent-hover);
+      --AccentButtonBackgroundPressed: var(--accent-pressed);
+      --AccentButtonBackgroundDisabled: var(--accent-fill-disabled);
+      --AccentButtonForeground: var(--accent-text);
+      --AccentButtonForegroundPointerOver: var(--accent-text);
+      --AccentButtonForegroundPressed: var(--accent-text-secondary);
+      --AccentButtonForegroundDisabled: var(--text-disabled);
+      --AccentButtonBorderBrush: var(--AccentButtonBorderBrushDefault, var(--accent-border));
+      --AccentButtonBorderBrushBottom: var(--AccentButtonBorderBrushDefaultBottom, var(--accent-border-accent));
+      --AccentButtonBorderBrushPointerOver: var(--AccentButtonBorderBrush);
+      --AccentButtonBorderBrushPointerOverBottom: var(--AccentButtonBorderBrushBottom);
+      --AccentButtonBorderBrushPressed: var(--ControlFillColorTransparentBrush, transparent);
+      --AccentButtonBorderBrushDisabled: var(--ControlFillColorTransparentBrush, transparent);
+    }
+
+  .win-btn .win-text-block {
+      color: inherit;
+    }
+
+  .win-btn.content-horizontal-stretch > * {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .win-btn.content-vertical-stretch > * {
+    align-self: stretch;
+  }
+
+    .win-btn.SubtleButtonStyle {
+      --ButtonBackground: var(--SubtleButtonBackground);
+      --ButtonBackgroundPointerOver: var(--SubtleButtonBackgroundPointerOver);
+      --ButtonBackgroundPressed: var(--SubtleButtonBackgroundPressed);
+      --ButtonBackgroundDisabled: var(--SubtleButtonBackgroundDisabled);
+      --ButtonForeground: var(--SubtleButtonForeground);
+      --ButtonForegroundPointerOver: var(--SubtleButtonForegroundPointerOver);
+      --ButtonForegroundPressed: var(--SubtleButtonForegroundPressed);
+      --ButtonForegroundDisabled: var(--SubtleButtonForegroundDisabled);
+      --ButtonBorderBrush: var(--SubtleButtonBorderBrush);
+      --ButtonBorderBrushTop: var(--SubtleButtonBorderBrush);
+      --ButtonBorderBrushBottom: var(--SubtleButtonBorderBrush);
+      --ButtonBorderBrushPointerOver: var(--SubtleButtonBorderBrushPointerOver);
+      --ButtonBorderBrushPointerOverTop: var(--SubtleButtonBorderBrushPointerOver);
+      --ButtonBorderBrushPointerOverBottom: var(--SubtleButtonBorderBrushPointerOver);
+      --ButtonBorderBrushPressed: var(--SubtleButtonBorderBrushPressed);
+      --ButtonBorderBrushPressedTop: var(--SubtleButtonBorderBrushPressed);
+      --ButtonBorderBrushPressedBottom: var(--SubtleButtonBorderBrushPressed);
+      --ButtonBorderBrushDisabled: var(--SubtleButtonBorderBrushDisabled);
+      --ButtonBorderBrushDisabledTop: var(--SubtleButtonBorderBrushDisabled);
+      --ButtonBorderBrushDisabledBottom: var(--SubtleButtonBorderBrushDisabled);
+      --SubtleButtonBackground: var(--subtle-transparent);
+      --SubtleButtonBackgroundPointerOver: var(--subtle-secondary);
+      --SubtleButtonBackgroundPressed: var(--subtle-tertiary);
+      --SubtleButtonBackgroundDisabled: var(--subtle-transparent);
+      --SubtleButtonForeground: var(--text-primary);
+      --SubtleButtonForegroundPointerOver: var(--text-primary);
+      --SubtleButtonForegroundPressed: var(--text-secondary);
+      --SubtleButtonForegroundDisabled: var(--text-disabled);
+      --SubtleButtonBorderBrush: var(--subtle-transparent);
+      --SubtleButtonBorderBrushPointerOver: var(--subtle-transparent);
+      --SubtleButtonBorderBrushPressed: var(--subtle-transparent);
+      --SubtleButtonBorderBrushDisabled: var(--subtle-transparent);
+    }
+
+  .win-btn {
+    white-space: nowrap;
+  }
+
+/* ==================== ContentDialog.vue ==================== */
+.content-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--SmokeFillColorDefaultBrush, var(--dialog-overlay, rgba(0, 0, 0, 0.30)));
+}
+
+.content-dialog {
+  width: min(100%, var(--ContentDialogMaxWidth, 548px));
+  min-width: min(100%, var(--ContentDialogMinWidth, 320px));
+  min-height: var(--ContentDialogMinHeight, 184px);
+  max-height: min(var(--ContentDialogMaxHeight, 756px), calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ContentDialogForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  background: var(--ContentDialogBackground, var(--SolidBackgroundFillColorBaseBrush, var(--dialog-background)));
+  border: var(--ContentDialogBorderWidth, 1px) solid var(--ContentDialogBorderBrush, var(--SurfaceStrokeColorDefaultBrush, var(--flyout-border)));
+  border-radius: var(--OverlayCornerRadius, 8px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.28);
+}
+
+.content-dialog-content {
+  min-height: 0;
+  flex: 1 1 auto;
+  padding: var(--ContentDialogPadding, 24px);
+  background: var(--content-dialog-content-bg, var(--ContentDialogTopOverlay, var(--LayerFillColorAltBrush, var(--dialog-content-bg))));
+  border-bottom: var(--ContentDialogSeparatorThickness, 1px) solid var(--ContentDialogSeparatorBorderBrush, var(--CardStrokeColorDefaultBrush, var(--dialog-divider)));
+}
+
+.content-dialog-title {
+  margin: 0 0 12px;
+  color: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.content-dialog-body {
+  color: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.content-dialog-command-space {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 0 0 8px minmax(0, 1fr);
+  column-gap: 0;
+  padding: var(--ContentDialogPadding, 24px);
+  background: var(--content-dialog-command-bg, var(--ContentDialogCommandSpaceBackground, var(--SolidBackgroundFillColorBaseBrush, var(--dialog-button-bg))));
+}
+
+.content-dialog-command-space.all-visible {
+  grid-template-columns: minmax(0, 1fr) 8px minmax(0, 1fr) 8px minmax(0, 1fr);
+}
+
+.content-dialog-button {
+  width: 100%;
+  min-width: 0;
+}
+
+.content-dialog-primary {
+  grid-column: 1;
+}
+
+.content-dialog-secondary {
+  grid-column: 1;
+}
+
+.content-dialog-close {
+  grid-column: 5;
+}
+
+.content-dialog-command-space.all-visible .content-dialog-secondary {
+  grid-column: 3;
+}
+
+.content-dialog-command-space.primary-visible .content-dialog-primary,
+.content-dialog-command-space.secondary-visible .content-dialog-secondary,
+.content-dialog-command-space.primary-secondary-visible .content-dialog-secondary {
+  grid-column: 5;
+}
+
+.content-dialog-enter-active {
+  transition: opacity 83ms linear;
+}
+
+.content-dialog-leave-active {
+  transition: opacity 83ms linear;
+  pointer-events: none;
+}
+
+.content-dialog-enter-active .content-dialog {
+  animation: content-dialog-enter 250ms cubic-bezier(0, 0, 0, 1) both;
+}
+
+.content-dialog-leave-active .content-dialog {
+  animation: content-dialog-exit 167ms cubic-bezier(0, 0, 0, 1) both;
+}
+
+.content-dialog-appear-active .content-dialog {
+  animation: content-dialog-enter 250ms cubic-bezier(0, 0, 0, 1) both;
+}
+
+.content-dialog-enter-from,
+.content-dialog-leave-to {
+  opacity: 0;
+}
+
+@keyframes content-dialog-enter {
+  from {
+    transform: scale(1.05);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes content-dialog-exit {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* ==================== ProgressBar.vue ==================== */
+.win-progress-bar {
+  --ProgressBarForeground: var(--AccentFillColorDefaultBrush, var(--accent-base));
+  --ProgressBarBackground: var(--ControlStrongStrokeColorDefaultBrush, var(--ctrl-strong-stroke));
+  --ProgressBarBorderBrush: var(--ControlStrokeColorDefaultBrush, var(--ctrl-border));
+  --ProgressBarPausedForegroundColor: var(--SystemFillColorCautionBrush, #9D5D00);
+  --ProgressBarErrorForegroundColor: var(--SystemFillColorCriticalBrush, #C42B1C);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 1px;
+  vertical-align: middle;
+  color: var(--ProgressBarForeground);
+}
+
+.LayoutRoot,
+.ProgressBarRoot,
+.ProgressBarClip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  box-sizing: border-box;
+}
+
+.ProgressBarRoot {
+  overflow: visible;
+  border-radius: inherit;
+}
+
+.ProgressBarClip {
+  overflow: visible;
+  border-radius: inherit;
+}
+
+.state-Indeterminate .ProgressBarClip,
+.state-IndeterminatePaused .ProgressBarClip,
+.state-IndeterminateError .ProgressBarClip {
+  overflow: hidden;
+}
+
+.ProgressBarTrack,
+.DeterminateProgressBarIndicator,
+.IndeterminateProgressBarIndicator,
+.IndeterminateProgressBarIndicator2 {
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.ProgressBarTrack {
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  min-height: 1px;
+  background: var(--ProgressBarBackground);
+  transform: translateY(-50%);
+  border-radius: 0.5px;
+  transition: opacity 167ms linear, transform 750ms cubic-bezier(0, 0, 0, 1);
+}
+
+.DeterminateProgressBarIndicator,
+.IndeterminateProgressBarIndicator,
+.IndeterminateProgressBarIndicator2 {
+  top: 0;
+  height: 3px;
+  min-height: 1px;
+  border-radius: 1.5px;
+  transform: none;
+}
+
+.DeterminateProgressBarIndicator {
+  background: var(--ProgressBarForeground);
+  transition: width 167ms cubic-bezier(0.4, 0, 0.6, 1), background-color 167ms linear;
+}
+
+.IndeterminateProgressBarIndicator,
+.IndeterminateProgressBarIndicator2 {
+  width: 40%;
+  opacity: 0;
+  background: var(--ProgressBarForeground);
+}
+
+.IndeterminateProgressBarIndicator2 {
+  width: 60%;
+}
+
+.state-Indeterminate .ProgressBarTrack {
+  opacity: 0;
+}
+
+.state-Indeterminate .IndeterminateProgressBarIndicator,
+.state-Indeterminate .IndeterminateProgressBarIndicator2 {
+  opacity: 1;
+}
+
+.state-Indeterminate .IndeterminateProgressBarIndicator {
+  animation: win-progress-bar-indeterminate 2s infinite;
+}
+
+.state-Indeterminate .IndeterminateProgressBarIndicator2 {
+  animation: win-progress-bar-indeterminate-2 2s infinite;
+}
+
+.state-IndeterminatePaused .ProgressBarTrack,
+.state-IndeterminateError .ProgressBarTrack {
+  opacity: 0;
+}
+
+.state-IndeterminatePaused .DeterminateProgressBarIndicator,
+.state-IndeterminateError .DeterminateProgressBarIndicator,
+.state-IndeterminatePaused .IndeterminateProgressBarIndicator,
+.state-IndeterminateError .IndeterminateProgressBarIndicator {
+  opacity: 0;
+}
+
+.state-IndeterminatePaused .IndeterminateProgressBarIndicator2,
+.state-IndeterminateError .IndeterminateProgressBarIndicator2 {
+  width: 100%;
+  opacity: 1;
+  animation: none;
+  transform: translateX(0);
+  transition: transform 750ms cubic-bezier(0, 0, 0, 1), background-color 167ms linear;
+}
+
+.state-IndeterminatePaused .IndeterminateProgressBarIndicator2 {
+  background: var(--ProgressBarPausedForegroundColor);
+}
+
+.state-IndeterminateError .IndeterminateProgressBarIndicator2 {
+  background: var(--ProgressBarErrorForegroundColor);
+}
+
+.state-Paused .DeterminateProgressBarIndicator {
+  background: var(--ProgressBarPausedForegroundColor);
+}
+
+.state-Error .DeterminateProgressBarIndicator {
+  background: var(--ProgressBarErrorForegroundColor);
+}
+
+.state-Paused .ProgressBarTrack,
+.state-Error .ProgressBarTrack,
+.state-Determinate .ProgressBarTrack {
+  opacity: 1;
+}
+
+.is-disabled {
+  opacity: 0.6;
+}
+
+@keyframes win-progress-bar-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(300%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes win-progress-bar-indeterminate-2 {
+  0% {
+    transform: translateX(-150%);
+  }
+  37.5% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(166%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-Indeterminate .IndeterminateProgressBarIndicator,
+  .state-Indeterminate .IndeterminateProgressBarIndicator2 {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+  }
+
+  .DeterminateProgressBarIndicator,
+  .ProgressBarTrack,
+  .IndeterminateProgressBarIndicator2 {
+    transition-duration: 0.001ms;
+  }
+}
+
+/* ==================== ProgressRing.vue ==================== */
+.win-progress-ring {
+  --ProgressRingStrokeThickness: 8;
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: var(--ProgressRingForeground);
+  opacity: 1;
+  transition: opacity 167ms linear;
+}
+
+.win-progress-ring.is-inactive,
+.win-progress-ring.is-collapsed {
+  opacity: 0;
+}
+
+.win-progress-ring.is-hidden {
+  visibility: hidden;
+}
+
+.win-progress-ring.is-collapsed {
+  display: none;
+}
+
+.win-progress-ring.is-disabled:not(.is-inactive):not(.is-collapsed) {
+  opacity: 0.6;
+}
+
+.LayoutRoot,
+.ProgressRingVisual {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ProgressRingVisual {
+  overflow: visible;
+}
+
+.ProgressRingTrack,
+.ProgressRingDeterminateIndicator,
+.ProgressRingIndeterminateIndicator {
+  fill: none;
+  stroke-width: var(--ProgressRingStrokeThickness);
+  stroke-linecap: round;
+}
+
+.ProgressRingTrack {
+  stroke: var(--ProgressRingBackground);
+}
+
+.ProgressRingDeterminateIndicator {
+  stroke: var(--ProgressRingForeground);
+  stroke-dasharray: 100;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.ProgressRingIndeterminateIndicator {
+  display: none;
+  stroke: var(--ProgressRingForeground);
+  stroke-dasharray: 0.01 100;
+  stroke-dashoffset: 0;
+}
+
+.is-indeterminate .ProgressRingDeterminateIndicator {
+  display: none;
+}
+
+.is-indeterminate .ProgressRingIndeterminateIndicator {
+  display: block;
+}
+
+.is-inactive .ProgressRingIndeterminateIndicator {
+  display: none;
+}
+
+/* ==================== FontIcon.vue ==================== */
+.win-font-icon { display: inline-flex; align-items: center; justify-content: center; font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets', sans-serif; line-height: 1; }
+
+/* ==================== ListView.vue ==================== */
+.win-list-view {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0;
+    color: var(--ListViewItemForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+    font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', sans-serif);
+    font-size: var(--ControlContentThemeFontSize, 14px);
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+
+  .win-list-view.disabled { opacity: 0.3; }
+
+  .win-list-viewport {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .win-list-content {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    transition: transform 240ms cubic-bezier(0.1, 0.9, 0.2, 1);
+    will-change: transform;
+  }
+
+  .win-list-content.drag-sinking {
+    /* ReorderSink is a surface-level presenter animation. Applying it to
+       the content host keeps every row, header, and divider moving together
+       instead of making only the row below the pointer appear displaced. */
+    /* Keep this on the content host rather than the item immediately after
+       the pointer.  The host contains every row (and grouped headers), so a
+       source drag and an external drop both produce one coherent surface
+       motion while the original row's hidden slot remains measurable. */
+    transform: translate3d(0, var(--ListViewItemReorderHintThemeOffset, 6px), 0);
+  }
+
+  .win-list-content.items-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .win-list-view > .win-list-viewport.items-bottom-host > .win-scroll-viewer-viewport > .scroll-content {
+    display: flex !important;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .win-list-view > .win-list-viewport.items-bottom-host > .win-scroll-viewer-viewport > .scroll-content > .win-list-content.items-bottom {
+    flex: 1 0 auto;
+  }
+
+  .win-list-group {
+    display: block;
+    width: 100%;
+  }
+
+  .win-list-header {
+    min-height: 44px;
+    margin: 0 0 4px;
+    box-sizing: border-box;
+    color: var(--TextFillColorPrimaryBrush, var(--text-primary));
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    /* Group headers sit above scrolling items. Use the active theme's solid
+       surface as the fallback rather than transparent, otherwise a sticky
+       header reveals the rows underneath while it moves. */
+    background-color: var(
+      --ListViewHeaderItemBackground,
+      var(--SolidBackgroundFillColorBaseBrush, var(--ctrl-solid-fill, #F3F3F3))
+    );
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+  }
+
+  .win-list-header-content {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 28px;
+    margin: 8px 12px 0;
+  }
+
+  .win-list-header-divider {
+    height: 1px;
+    width: auto;
+    margin: 8px 12px 0;
+    box-sizing: border-box;
+    flex: 0 0 1px;
+    background: transparent;
+    border-top: .5px solid var(--ListViewHeaderItemDividerStroke, color-mix(in srgb, currentColor 20%, transparent));
+    pointer-events: none;
+  }
+
+    .win-list-header.sticky {
+      position: sticky;
+      top: 0;
+    }
+
+  .win-list-item {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-width: 88px;
+    min-height: 40px;
+    box-sizing: border-box;
+    /* DefaultListViewItemStyle.Padding belongs to the ContentPresenter. */
+    padding: 0;
+    border-style: solid;
+    border-width: 0;
+    border-radius: var(--ListViewItemCornerRadius, 4px);
+    display: block;
+    overflow: visible;
+    cursor: default;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 240ms cubic-bezier(0.1, 0.9, 0.2, 1),
+      background-color var(--faster-duration, 83ms) linear,
+      opacity 240ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+  .win-list-item.can-drag {
+    cursor: grab;
+  }
+
+  .win-list-item.can-drag *,
+  .win-list-item.win-list-drag-preview * {
+    -webkit-user-drag: none;
+  }
+
+  /* The presenter paints an inset surface inside each ListViewItem. Keeping
+     that surface separate from the layout box prevents selection and pointer
+     states from changing the item's measured width or height. */
+  .win-list-item::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 2px 4px;
+    border-radius: var(--ListViewItemCornerRadius, 4px);
+    background: var(--ListViewItemBackground, var(--SubtleFillColorTransparentBrush, transparent));
+    pointer-events: none;
+    transition: transform 240ms cubic-bezier(0.1, 0.9, 0.2, 1),
+      opacity 240ms cubic-bezier(0.1, 0.9, 0.2, 1),
+      background-color var(--faster-duration, 83ms) linear;
+  }
+
+  .win-list-item > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ContentBorder in the native presenter is the visual surface that is
+     scaled during ReorderingTarget.  Keep a matching surface wrapper inside
+     the arranged row so the row's slot and live-reorder translation retain
+     their original dimensions. */
+  .win-list-item-visual {
+    position: relative;
+    width: 100%;
+    min-height: inherit;
+    box-sizing: border-box;
+    transform-origin: center center;
+    transition: transform 240ms cubic-bezier(0.1, 0.9, 0.2, 1),
+      opacity 240ms cubic-bezier(0.1, 0.9, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  /* The hovered row is only an insertion target.  It must keep its normal
+     measured and painted size while the dragged preview passes over it; a
+     target-scale transform makes the row appear to collapse under the
+     pointer and is not part of this ListView's drag interaction. */
+  .win-list-item.reorder-target .win-list-item-visual,
+  .win-list-item.reorder-target::before {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* This is the ContentPresenter equivalent.  Keeping the padding and the
+     measured width here prevents selection chrome from moving the item. */
+  .win-list-item-content {
+    display: flex;
+    align-items: center;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    box-sizing: border-box;
+    /* ListViewItemPresenter's Border uses Margin="4,2,4,2".  The
+       corresponding content presenter therefore occupies the inset box,
+       while its default ContentMargin remains 16,0,12,0. */
+    margin: 2px 4px;
+    padding: 0 12px 0 16px;
+  }
+
+  .win-list-item-content > * {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .win-list-item.content-stretch .win-list-item-content > * {
+    flex: 1 1 auto;
+  }
+
+  .win-list-item.multi-select {
+    /* The native presenter translates its content by 32px while the
+       checkbox is shown.  Include that space inside the fixed presenter. */
+  }
+
+  .win-list-item.multi-select .win-list-item-content {
+    padding-left: 48px;
+    transition: padding-left 333ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+  .win-list-item:not(.multi-select) .win-list-item-content {
+    transition: padding-left 333ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+    .win-list-view:not(.disabled) .win-list-item:hover {
+      background: transparent;
+    }
+
+    .win-list-view:not(.disabled) .win-list-item:hover::before {
+      background: var(--ListViewItemBackgroundPointerOver, var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary)));
+    }
+
+    .win-list-view:not(.disabled) .win-list-item:active {
+      background: transparent;
+    }
+
+    .win-list-view:not(.disabled) .win-list-item:active::before {
+      background: var(--ListViewItemBackgroundPressed, var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary)));
+    }
+
+    .win-list-item.selected {
+      background: transparent;
+    }
+
+    .win-list-item.selected::before {
+      background: var(--ListViewItemBackgroundSelected, var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary)));
+    }
+
+      .win-list-item.selected:hover {
+        background: transparent;
+      }
+
+      .win-list-item.selected:hover::before {
+        background: var(--ListViewItemBackgroundSelectedPointerOver, var(--SubtleFillColorTertiaryBrush, var(--subtle-tertiary)));
+      }
+
+      .win-list-item.selected:active {
+        background: transparent;
+      }
+
+    .win-list-item.selected:active::before {
+      background: var(--ListViewItemBackgroundSelectedPressed, var(--SubtleFillColorSecondaryBrush, var(--subtle-secondary)));
+    }
+
+  .win-list-item.message-item::before,
+    .win-list-item.message-item:hover::before,
+    .win-list-item.message-item:active::before {
+      background: transparent;
+    }
+
+    .win-list-item.message-item,
+    .win-list-item.message-item:hover,
+    .win-list-item.message-item:active,
+    .win-list-item.message-item.selected,
+    .win-list-item.message-item.selected:hover,
+    .win-list-item.message-item.selected:active {
+      background: transparent;
+    }
+
+  .win-list-item.message-item .win-list-item-content {
+      /* The message DataTemplate is still hosted by the regular
+         ListViewItemPresenter. Its bubble owns color and radius; the item
+         keeps the native presenter inset and ContentMargin. */
+      min-height: 36px;
+      width: auto;
+      display: flex;
+      flex: 1 1 auto;
+      align-items: stretch;
+      max-width: 100%;
+      overflow: visible;
+      /* SelectionMode=None has no indicator lane.  Use the same presenter
+         inset on both sides so Grid Margin="4" produces equal message edges. */
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .win-list-item.message-item .win-list-item-content > * {
+      flex: 0 1 auto;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .win-list-item.message-item .win-list-item-content > .win-grid {
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+
+    .win-list-item.message-item .win-list-item-content .win-stack-panel {
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+    }
+
+    .win-list-item.message-item .win-list-item-content > .win-grid {
+      /* Grid carries an inline Margin="4" from the official template.  The
+         auto side must win so Right/Left messages keep their bubble edge. */
+      margin-left: auto !important;
+      margin-right: 4px !important;
+      width: auto !important;
+      animation: none;
+      flex: 0 1 auto !important;
+      border-radius: 4px;
+      overflow: hidden;
+      clip-path: inset(0 round 4px);
+    }
+
+    .win-list-item.message-item.message-left .win-list-item-content > .win-grid {
+      margin-left: 4px !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+
+    .win-list-item.message-item.message-right .win-list-item-content > .win-grid {
+      margin-left: auto !important;
+      margin-right: 4px !important;
+    }
+
+  .win-list-item.message-item .win-list-item-content > .win-grid .win-stack-panel {
+      width: min(350px, calc(100vw - 96px)) !important;
+      max-width: 350px;
+      border-radius: 4px;
+      box-sizing: border-box;
+      overflow: hidden;
+      clip-path: inset(0 round 4px);
+    }
+
+    /* AddDeleteThemeTransition keeps the new container in its arranged slot
+       while the affected rows finish their 300ms reposition. The fade starts
+       only after that push, so a message grows upward instead of entering
+       from either side. The same class is used for filtering/reload adds. */
+    .win-list-item.collection-enter .win-list-item-content {
+      animation: list-item-fade-in 167ms linear 300ms both;
+    }
+
+    @keyframes list-item-fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Image templates in the gallery use an Auto/Star Grid.  Constrain the
+       rendered media to the item presenter so a remote bitmap cannot paint
+       over the options column or the ListView border. */
+    .win-list-item:not(.message-item) .win-list-item-content > .win-grid {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .win-list-item-content .win-image-host,
+    .win-list-item-content .win-image {
+      max-width: 100%;
+      max-height: 100px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .win-list-item-content .win-image-host {
+      overflow: hidden;
+    }
+
+    .win-list-item:focus-visible {
+      outline: 2px solid var(--ListViewItemFocusVisualPrimaryBrush, var(--FocusStrokeColorOuterBrush, var(--text-primary)));
+      outline-offset: -3px;
+    }
+
+    .win-list-item.dragging-source {
+      /* Keep the original layout slot as an invisible placeholder while the
+         fixed preview follows the pointer. */
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      cursor: grabbing;
+    }
+
+  .win-list-item.drag-shrink {
+      /* The native affected-item presenter settles with the whole list
+         surface slightly lowered; keep the measured row height unchanged so
+         scrolling and insertion geometry remain stable. */
+    opacity: 1;
+    will-change: transform, opacity;
+  }
+
+  .win-list-item.drag-shrink .win-list-item-visual,
+  .win-list-item.drag-shrink::before {
+    opacity: var(--ListViewItemReorderThemeOpacity, .8);
+  }
+
+    .win-list-item.win-list-drag-preview {
+      position: fixed;
+      z-index: 2147483647;
+      pointer-events: none;
+      opacity: var(--ListViewItemDragThemeOpacity, .8);
+      transition: none !important;
+      will-change: transform;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+    }
+
+  .win-list-item.reorder-target {
+      /* ReorderingTarget's opacity/scale live on the visual wrapper above;
+         this outer element only owns the arranged slot and its offset. */
+      opacity: 1;
+    }
+
+  .win-list-view-selection-indicator {
+    position: absolute;
+    z-index: 3;
+    left: 4px;
+    top: 50%;
+    bottom: auto;
+    width: 3px;
+    /* The native presenter uses max(16px, itemHeight - 40px): the indicator
+       grows with a tall DataTemplate while retaining its 16px compact size. */
+    height: max(min(16px, 100%), calc(100% - 40px));
+    min-height: 0;
+    transform: translateY(-50%) scaleY(1);
+    transform-origin: center center;
+    border-radius: var(--ListViewItemSelectionIndicatorCornerRadius, 1.5px);
+    background: var(--ListViewItemSelectionIndicatorBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 83ms linear;
+  }
+
+    .win-list-view-selection-indicator.active {
+      opacity: 1;
+      transform: translateY(-50%) scaleY(1);
+      animation: none;
+    }
+
+    .win-list-view-selection-indicator.indicator-pressed {
+      /* JS resolves H from the rendered item, then applies H - 6 (with a
+         compact-row floor). A measured value keeps variable-height templates
+         on the same curve. */
+      height: var(--selection-indicator-pressed-height, 1px) !important;
+      min-height: 0 !important;
+    }
+
+  .win-list-item:hover .win-list-view-selection-indicator.active {
+    background: var(--ListViewItemSelectionIndicatorPointerOverBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+  }
+
+  .win-list-item:active .win-list-view-selection-indicator.active {
+    background: var(--ListViewItemSelectionIndicatorPressedBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+  }
+
+  /* ListViewItemPresenter uses the platform CheckBox visual in multiple
+     selection mode.  Keep it in a fixed lane and animate that lane exactly
+     like the native 333ms MultiSelectEnabled transition. */
+  .list-selection-check {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    z-index: 2;
+    transform: translate(-32px, -50%);
+    transform-origin: center center;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 333ms cubic-bezier(0.1, 0.9, 0.2, 1), opacity 167ms linear;
+    --CheckBoxCheckBackgroundFill: var(--ListViewItemCheckBoxBrush, var(--ControlAltFillColorSecondaryBrush, var(--ctrl-fill-secondary)));
+    --CheckBoxCheckBackgroundStroke: var(--ListViewItemCheckBoxBorderBrush, var(--ControlStrongStrokeColorDefaultBrush, var(--ctrl-strong-stroke)));
+    --CheckBoxCheckGlyphForeground: var(--ListViewItemCheckBrush, var(--TextOnAccentFillColorPrimaryBrush, #fff));
+  }
+
+  .list-selection-check.is-visible {
+    transform: translate(0, -50%);
+    opacity: 1;
+  }
+
+  .list-selection-check.is-checked {
+    --CheckBoxCheckBackgroundFill: var(--ListViewItemCheckBoxSelectedBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+    --CheckBoxCheckBackgroundStroke: var(--ListViewItemCheckBoxSelectedBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+    --CheckBoxCheckGlyphForeground: var(--ListViewItemCheckBrush, var(--TextOnAccentFillColorPrimaryBrush, #fff));
+  }
+
+  .list-selection-check .checkbox-content {
+    display: none;
+  }
+
+  .list-selection-check .checkbox-box {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: var(--ListViewItemCheckBoxCornerRadius, 3px);
+  }
+
+  .list-selection-check.is-disabled .checkbox-box,
+  .list-selection-check.is-disabled.is-checked .checkbox-box {
+    /* The internal presenter check is not disabled when the ListView itself
+       is enabled; only its input surface is inert. */
+    opacity: 1;
+    background: var(--CheckBoxCheckBackgroundFill);
+    border-color: var(--CheckBoxCheckBackgroundStroke);
+  }
+
+  .list-selection-check.is-disabled .checkbox-glyph {
+    color: var(--CheckBoxCheckGlyphForeground);
+  }
+
+  /* HorizontalAlignment is a child alignment in XAML. The message template
+     is the one child that must keep its intrinsic bubble width inside the
+     stretched presenter. */
+  .win-list-item.message-item .win-list-item-content > .win-grid[data-horizontal-alignment='Right'],
+  .win-list-item.content-stretch .win-list-item-content > .win-grid[data-horizontal-alignment='Right'],
+  .win-list-item.message-right .win-list-item-content > .win-grid {
+    flex: 0 1 auto;
+    margin-left: auto;
+  }
+
+  .win-list-item.message-item .win-list-item-content > .win-grid[data-horizontal-alignment='Left'],
+  .win-list-item.content-stretch .win-list-item-content > .win-grid[data-horizontal-alignment='Left'],
+  .win-list-item.message-left .win-list-item-content > .win-grid {
+    flex: 0 1 auto;
+    margin-right: auto;
+  }
+
+  .win-list-item.message-item .win-list-item-content > .win-grid[data-horizontal-alignment='Right'],
+  .win-list-item.message-item .win-list-item-content > .win-grid[data-horizontal-alignment='Left'] {
+    max-width: 100%;
+  }
+
+  .win-list-item.message-item:hover::before,
+  .win-list-item.message-item:active::before,
+  .win-list-item.message-item:hover,
+  .win-list-item.message-item:active {
+    background: transparent !important;
+  }
+
+  .win-list-item.message-item .win-list-item-content > .win-grid > .win-stack-panel:hover,
+  .win-list-item.message-item .win-list-item-content > .win-grid > .win-stack-panel:active {
+    background: var(--SystemColorHighlightColor, var(--AccentFillColorDefaultBrush, var(--accent-base))) !important;
+  }
+
+/* ==================== TextBlock.vue ==================== */
+.win-text-block {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+  font-size: var(--ControlContentThemeFontSize, 14px);
+  line-height: 20px;
+  white-space: normal;
+  overflow-wrap: normal;
+  user-select: none;
+}
+
+.win-text-block.CustomTextBlockStyle {
+  font-family: 'Comic Sans MS';
+  font-style: italic;
+}
+
+.win-text-block.BaseTextBlockStyle,
+.win-text-block.BodyStrongTextBlockStyle {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.win-text-block.CaptionTextBlockStyle {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.win-text-block.BodyTextBlockStyle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.win-text-block.BodyLargeTextBlockStyle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.win-text-block.BodyLargeStrongTextBlockStyle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.win-text-block.SubtitleTextBlockStyle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.win-text-block.TitleTextBlockStyle {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+.win-text-block.TitleLargeTextBlockStyle {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 52px;
+}
+
+.win-text-block.DisplayTextBlockStyle {
+  font-size: 68px;
+  font-weight: 600;
+  line-height: 92px;
+}
+
+.win-text-block::selection {
+  background-color: var(--TextBlockSelectionHighlightColor, Highlight);
+  color: HighlightText;
+}
+
+/* ==================== InfoBar.vue ==================== */
+.win-infobar {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  color: var(--InfoBarForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  background: var(--InfoBarSeverityBackgroundBrush, var(--InfoBarInformationalSeverityBackgroundBrush));
+  border-color: var(--InfoBarBorderBrush, var(--CardStrokeColorDefaultBrush, var(--card-stroke)));
+  border-style: solid;
+  border-width: var(--InfoBarBorderThickness, 1px);
+  border-radius: var(--InfoBarCornerRadius, var(--ControlCornerRadius, 4px));
+  font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+  --InfoBarInformationalSeverityBackgroundBrush: var(--SystemFillColorAttentionBackgroundBrush, light-dark(rgb(246 246 246 / 50%), rgb(255 255 255 / 3.14%)));
+  --InfoBarSuccessSeverityBackgroundBrush: var(--SystemFillColorSuccessBackgroundBrush, light-dark(#dff6dd, #393d1b));
+  --InfoBarWarningSeverityBackgroundBrush: var(--SystemFillColorCautionBackgroundBrush, light-dark(#fff4ce, #433519));
+  --InfoBarErrorSeverityBackgroundBrush: var(--SystemFillColorCriticalBackgroundBrush, light-dark(#fde7e9, #442726));
+  --InfoBarInformationalSeverityIconBackground: var(--SystemFillColorAttentionBrush, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+  --InfoBarSuccessSeverityIconBackground: var(--SystemFillColorSuccessBrush, light-dark(#0f7b0f, #6ccb5f));
+  --InfoBarWarningSeverityIconBackground: var(--SystemFillColorCautionBrush, light-dark(#9d5d00, #fce100));
+  --InfoBarErrorSeverityIconBackground: var(--SystemFillColorCriticalBrush, light-dark(#c42b1c, #ff99a4));
+  --InfoBarHyperlinkButtonForeground: var(--AccentTextFillColorPrimaryBrush, var(--accent-text-fill-color-primary));
+}
+
+.win-infobar-layout {
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0 0 0 16px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: start;
+  background: var(--InfoBarBackground, transparent);
+  border-radius: inherit;
+}
+
+.win-infobar-standard-icon-area,
+.win-infobar-user-icon-box {
+  grid-column: 1;
+  grid-row: 1;
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  margin: 16px 14px 16px 0;
+  align-self: start;
+}
+
+.win-infobar-standard-icon-area {
+  display: grid;
+  place-items: center;
+}
+
+.win-infobar-standard-icon-area .win-infobar-standard-icon,
+.win-infobar-user-icon-box .win-infobar-user-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.win-infobar-user-icon-box {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.win-infobar-panel {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0 16px 0 0;
+  padding: 0;
+  display: flex;
+  align-items: start;
+}
+
+.win-infobar-panel .win-infobar-title,
+.win-infobar-panel .win-infobar-message {
+  box-sizing: border-box;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--InfoBarForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  font-size: 14px;
+  line-height: 20px;
+  white-space: normal;
+  overflow-wrap: normal;
+}
+
+.win-infobar-panel .win-infobar-title {
+  font-weight: 600;
+}
+
+.win-infobar-panel .win-infobar-message {
+  font-weight: 400;
+}
+
+.win-infobar-action {
+  box-sizing: border-box;
+  min-width: 0;
+  display: grid;
+  align-items: start;
+  justify-items: start;
+}
+
+.win-infobar-action:empty {
+  display: none;
+}
+
+.win-infobar-action .win-hyperlink-button,
+.win-infobar-action-measure .win-hyperlink-button {
+  margin: 0 0 0 -12px;
+  color: var(--InfoBarHyperlinkButtonForeground);
+}
+
+.win-infobar-action .win-hyperlink-button .win-text-block,
+.win-infobar-action-measure .win-hyperlink-button .win-text-block {
+  color: inherit;
+}
+
+.win-infobar-panel.is-vertical {
+  flex-direction: column;
+  padding: 14px 0 18px;
+}
+
+.win-infobar-panel.is-vertical .win-infobar-title,
+.win-infobar-panel.is-vertical .win-infobar-message,
+.win-infobar-panel.is-vertical .win-infobar-action {
+  flex: 0 0 auto;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.win-infobar-panel.is-vertical .win-infobar-title,
+.win-infobar-panel.is-vertical .win-infobar-message {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.win-infobar-panel.is-vertical.has-title .win-infobar-message {
+  margin-top: 4px;
+}
+
+.win-infobar-panel.is-vertical.has-title .win-infobar-action,
+.win-infobar-panel.is-vertical.has-message .win-infobar-action {
+  margin-top: 12px;
+}
+
+.win-infobar-panel.is-vertical .win-infobar-action {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.win-infobar-panel:not(.is-vertical) {
+  flex-direction: row;
+  min-height: 48px;
+}
+
+.win-infobar-panel:not(.is-vertical) .win-infobar-title,
+.win-infobar-panel:not(.is-vertical) .win-infobar-message {
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: none;
+  margin-top: 14px;
+  white-space: nowrap;
+}
+
+.win-infobar-panel:not(.is-vertical).has-title .win-infobar-message {
+  margin-left: 12px;
+}
+
+.win-infobar-panel:not(.is-vertical) .win-infobar-action {
+  flex: 1 1 auto;
+  margin-top: 8px;
+}
+
+.win-infobar-panel:not(.is-vertical).has-title .win-infobar-action,
+.win-infobar-panel:not(.is-vertical).has-message .win-infobar-action {
+  margin-left: 16px;
+}
+
+.win-infobar-panel:not(.is-vertical):not(.has-action) .win-infobar-message {
+  flex-grow: 1;
+}
+
+.win-infobar-measure-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  height: auto;
+  display: none;
+  overflow: visible;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.win-infobar-measure-text {
+  box-sizing: border-box;
+  display: block;
+  width: max-content;
+  max-width: none;
+  min-width: max-content;
+  margin: 0;
+  color: var(--InfoBarForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.win-infobar-action-measure {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: none;
+  min-width: max-content;
+  margin: 0;
+  display: inline-grid;
+  align-items: start;
+  justify-items: start;
+}
+
+.win-infobar-content-area {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  align-self: center;
+}
+
+.no-banner-content .win-infobar-content-area {
+  grid-row: 1;
+}
+
+.win-infobar-close-button {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: start;
+  box-sizing: border-box;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  margin: 5px;
+  padding: 0;
+}
+
+.win-infobar-close-button.uses-default-close-button-style {
+  --ButtonBackground: transparent;
+  --ButtonBackgroundPointerOver: var(--subtle-secondary);
+  --ButtonBackgroundPressed: var(--subtle-tertiary);
+  --ButtonBackgroundDisabled: transparent;
+  --ButtonForeground: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --ButtonForegroundPointerOver: var(--TextFillColorPrimaryBrush, var(--text-primary));
+  --ButtonForegroundPressed: var(--TextFillColorSecondaryBrush, var(--text-secondary));
+  --ButtonForegroundDisabled: var(--TextFillColorDisabledBrush, var(--text-disabled));
+  --ButtonBorderBrush: transparent;
+  --ButtonBorderBrushTop: transparent;
+  --ButtonBorderBrushBottom: transparent;
+  --ButtonBorderBrushPointerOver: transparent;
+  --ButtonBorderBrushPressed: transparent;
+  --ButtonBorderBrushDisabled: transparent;
+}
+
+.win-infobar-close-button .win-infobar-close-glyph {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  text-align: center;
+}
+
+.win-infobar-informational {
+  --InfoBarSeverityBackgroundBrush: var(--InfoBarInformationalSeverityBackgroundBrush);
+  --InfoBarSeverityIconBackground: var(--InfoBarInformationalSeverityIconBackground);
+}
+
+.win-infobar-success {
+  --InfoBarSeverityBackgroundBrush: var(--InfoBarSuccessSeverityBackgroundBrush);
+  --InfoBarSeverityIconBackground: var(--InfoBarSuccessSeverityIconBackground);
+}
+
+.win-infobar-warning {
+  --InfoBarSeverityBackgroundBrush: var(--InfoBarWarningSeverityBackgroundBrush);
+  --InfoBarSeverityIconBackground: var(--InfoBarWarningSeverityIconBackground);
+}
+
+.win-infobar-error {
+  --InfoBarSeverityBackgroundBrush: var(--InfoBarErrorSeverityBackgroundBrush);
+  --InfoBarSeverityIconBackground: var(--InfoBarErrorSeverityIconBackground);
+}
+
+/* ==================== InfoBadge.vue ==================== */
+.win-infobadge {
+  box-sizing: border-box;
+  min-width: var(--InfoBadgeMinWidth, 4px);
+  min-height: var(--InfoBadgeMinHeight, 4px);
+  max-height: var(--InfoBadgeMaxHeight, 16px);
+  padding: var(--InfoBadgePadding, 0);
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  flex: 0 0 auto;
+  vertical-align: middle;
+  border-radius: var(--InfoBadgeCornerRadius, 8px);
+  background: var(--InfoBadgeBackground, var(--AccentFillColorDefaultBrush, var(--accent-base, #0067c0)));
+  color: var(--InfoBadgeForeground, var(--TextOnAccentFillColorPrimaryBrush, var(--accent-text, #ffffff)));
+  font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+  transition: opacity var(--fast-duration) var(--fast-out-slow-in), width var(--normal-duration) var(--fast-out-slow-in), min-width var(--normal-duration) var(--fast-out-slow-in);
+  --InfoBadgeInformationalBackground: light-dark(#8a8a8a, #9d9d9d);
+  --InfoBadgeSuccessBackground: light-dark(#0f7b0f, #6ccb5f);
+  --InfoBadgeCautionBackground: light-dark(#9d5d00, #fce100);
+  --InfoBadgeCriticalBackground: light-dark(#c42b1c, #ff99a4);
+}
+
+.win-infobadge-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.win-infobadge-value,
+.win-infobadge-fonticon,
+.win-infobadge-icon {
+  width: max-content;
+}
+
+.win-infobadge-value,
+.win-infobadge-fonticon,
+.win-infobadge-icon {
+  min-width: 16px;
+}
+
+.win-infobadge-value {
+  height: 16px;
+}
+
+.win-infobadge-single-value {
+  width: 16px;
+}
+
+.win-infobadge .win-infobadge-value-text {
+  display: inline-block;
+  width: max-content;
+  margin: 0 4px 2px;
+  color: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+  white-space: nowrap;
+  justify-self: center;
+  align-self: center;
+}
+
+.win-infobadge-icon-presenter {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  align-self: stretch;
+  overflow: visible;
+}
+
+.win-infobadge-fonticon .win-infobadge-icon-presenter {
+  width: 12px;
+  height: 14px;
+  margin: 0 4px 2px;
+  flex: 0 0 12px;
+}
+
+.win-infobadge-style-fonticon-padding {
+  min-width: 16px;
+}
+
+.win-infobadge-style-fonticon-padding .win-infobadge-icon-presenter {
+  width: 8px;
+  height: 8px;
+  flex-basis: 8px;
+}
+
+.win-infobadge-icon .win-infobadge-icon-presenter {
+  width: 8px;
+  height: 8px;
+  margin: 4px;
+  flex: 0 0 8px;
+}
+
+.win-infobadge .win-infobadge-icon-glyph {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--InfoBadgeIconForeground, inherit);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.win-infobadge-style-fonticon-padding {
+  padding: 4px 0 2px;
+}
+
+.win-infobadge-attention {
+  --InfoBadgeBackground: var(--SystemFillColorAttentionBrush, var(--AccentFillColorDefaultBrush, var(--accent-base, #0067c0)));
+}
+
+.win-infobadge-informational {
+  --InfoBadgeBackground: var(--SystemFillColorSolidNeutralBrush, var(--InfoBadgeInformationalBackground));
+}
+
+.win-infobadge-success {
+  --InfoBadgeBackground: var(--SystemFillColorSuccessBrush, var(--InfoBadgeSuccessBackground));
+}
+
+.win-infobadge-caution {
+  --InfoBadgeBackground: var(--SystemFillColorCautionBrush, var(--InfoBadgeCautionBackground));
+}
+
+.win-infobadge-critical {
+  --InfoBadgeBackground: var(--SystemFillColorCriticalBrush, var(--InfoBadgeCriticalBackground));
+}
+
+.horizontal-left {
+  justify-self: start;
+}
+
+.horizontal-center {
+  justify-self: center;
+}
+
+.horizontal-right {
+  justify-self: end;
+}
+
+.vertical-top {
+  align-self: start;
+}
+
+.vertical-center {
+  align-self: center;
+}
+
+.vertical-bottom {
+  align-self: end;
+}
+
+/* ==================== ScrollBar.vue ==================== */
+.win-scrollbar {
+  position: relative;
+  transition: opacity 0.2s var(--standard-easing);
+}
+
+/* Vertical orientation */
+.win-scrollbar.vertical {
+  width: 17px;
+  min-height: 100px;
+}
+
+.win-scrollbar.vertical.mode-mouseindicator {
+  width: 12px;
+}
+
+/* Horizontal orientation */
+.win-scrollbar.horizontal {
+  height: 17px;
+  min-width: 100px;
+}
+
+.win-scrollbar.horizontal.mode-mouseindicator {
+  height: 12px;
+}
+
+/* Auto-hide behavior */
+.win-scrollbar.auto-hide {
+  opacity: 0.3;
+}
+
+.win-scrollbar:hover,
+.win-scrollbar:active {
+  opacity: 1;
+}
+
+/* Track */
+.win-scrollbar-track {
+  position: absolute;
+  isolation: isolate;
+  opacity: 0;
+  background: transparent;
+  border-radius: 8px;
+  -webkit-backdrop-filter: var(--flyout-backdrop, blur(30px));
+  backdrop-filter: var(--flyout-backdrop, blur(30px));
+  transition: opacity 0.1s var(--standard-easing);
+}
+
+.win-scrollbar-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--ScrollBarTrackFill, color-mix(in srgb, var(--flyout-bg, Canvas) 78%, transparent));
+}
+
+.win-scrollbar.vertical .win-scrollbar-track {
+  width: 100%;
+  height: 100%;
+}
+
+.win-scrollbar.horizontal .win-scrollbar-track {
+  width: 100%;
+  height: 100%;
+}
+
+.win-scrollbar:hover .win-scrollbar-track {
+  opacity: 1;
+  background: transparent;
+}
+
+/* Thumb */
+.win-scrollbar-thumb {
+  position: absolute;
+  background: rgba(99, 99, 99, 0.6);
+  border-radius: 8px;
+  transition:
+    background 0.1s var(--standard-easing),
+    width 0.1s var(--standard-easing),
+    height 0.1s var(--standard-easing);
+  cursor: pointer;
+}
+
+.win-scrollbar.vertical .win-scrollbar-thumb {
+  width: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: 40px;
+}
+
+.win-scrollbar.horizontal .win-scrollbar-thumb {
+  height: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 40px;
+}
+
+/* Hover state - expand thumb */
+.win-scrollbar:hover .win-scrollbar-thumb {
+  background: rgba(99, 99, 99, 0.8);
+}
+
+.win-scrollbar.vertical:hover .win-scrollbar-thumb {
+  width: 10px;
+}
+
+.win-scrollbar.horizontal:hover .win-scrollbar-thumb {
+  height: 10px;
+}
+
+/* Active/Dragging state */
+.win-scrollbar-thumb:active,
+.win-scrollbar.dragging .win-scrollbar-thumb {
+  background: rgba(66, 66, 66, 0.9);
+}
+
+/* Mouse indicator mode - thinner */
+.win-scrollbar.mode-mouseindicator .win-scrollbar-thumb {
+  background: rgba(99, 99, 99, 0.5);
+}
+
+.win-scrollbar.mode-mouseindicator.vertical .win-scrollbar-thumb {
+  width: 4px;
+}
+
+.win-scrollbar.mode-mouseindicator.horizontal .win-scrollbar-thumb {
+  height: 4px;
+}
+
+.win-scrollbar.mode-mouseindicator:hover.vertical .win-scrollbar-thumb {
+  width: 8px;
+}
+
+.win-scrollbar.mode-mouseindicator:hover.horizontal .win-scrollbar-thumb {
+  height: 8px;
+}
+
+/* Touch indicator mode - thicker, more visible */
+.win-scrollbar.mode-touchindicator .win-scrollbar-thumb {
+  background: rgba(99, 99, 99, 0.7);
+}
+
+.win-scrollbar.mode-touchindicator.vertical .win-scrollbar-thumb {
+  width: 8px;
+}
+
+.win-scrollbar.mode-touchindicator.horizontal .win-scrollbar-thumb {
+  height: 8px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .win-scrollbar:hover .win-scrollbar-track {
+    background: transparent;
+  }
+
+  .win-scrollbar-thumb {
+    background: rgba(159, 159, 159, 0.6);
+  }
+
+  .win-scrollbar:hover .win-scrollbar-thumb {
+    background: rgba(159, 159, 159, 0.8);
+  }
+
+  .win-scrollbar-thumb:active,
+  .win-scrollbar.dragging .win-scrollbar-thumb {
+    background: rgba(189, 189, 189, 0.9);
+  }
+
+  .win-scrollbar.mode-mouseindicator .win-scrollbar-thumb {
+    background: rgba(159, 159, 159, 0.5);
+  }
+
+  .win-scrollbar.mode-touchindicator .win-scrollbar-thumb {
+    background: rgba(159, 159, 159, 0.7);
+  }
+}
+
+/* ==================== SelectorBar.vue(页签) ==================== */
+.win-selector-bar {
+  display: inline-grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  min-width: 0;
+  border: 0 solid transparent;
+  color: var(--SelectorBarItemForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  font-family: var(--ContentControlThemeFontFamily, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+}
+
+.win-selector-bar-items-view {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.win-selector-bar-items-view::-webkit-scrollbar {
+  display: none;
+}
+
+.win-selector-bar-item {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 3px;
+  min-width: 0;
+  min-height: 40px;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto;
+  color: var(--SelectorBarItemForeground, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  background: var(--SelectorBarItemBackground, transparent);
+  background-image: none;
+  border: 1px solid var(--SelectorBarItemBorderBrush, transparent);
+  border-style: solid;
+  border-radius: var(--ControlCornerRadius, 4px);
+  box-shadow: none;
+  outline: none;
+  font: inherit;
+  line-height: normal;
+  text-align: inherit;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.win-selector-bar-item:disabled {
+  cursor: default;
+}
+
+.win-selector-bar-item-content {
+  position: relative;
+  z-index: 1;
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  gap: var(--SelectorBarItemSpacing, 8px);
+  min-width: 0;
+  margin: var(--win-selector-bar-item-padding, 10px 12px 7px 12px);
+  color: inherit;
+  text-align: left;
+}
+
+.win-selector-bar-item-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 -2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  font-size: 20px;
+  line-height: 20px;
+  transform: scale(var(--SelectorBarItemIconScale, 0.8));
+  transform-origin: 50% 50%;
+  flex: 0 0 20px;
+}
+
+.win-selector-bar-item-icon-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.win-selector-bar-item-icon-glyph img,
+.win-selector-bar-item-icon-glyph img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.win-selector-bar-item-text {
+  min-width: 0;
+  color: inherit;
+  font-size: var(--ControlContentThemeFontSize, 14px);
+  font-weight: 400;
+  line-height: 20px;
+  white-space: normal;
+}
+
+.win-selector-bar-item-selection-visual {
+  position: relative;
+  z-index: 1;
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: center;
+  align-self: end;
+  width: var(--SelectorBarItemPillWidth, 4px);
+  height: var(--SelectorBarItemPillHeight, 3px);
+  opacity: 0;
+  background: var(--SelectorBarItemPillFill, var(--AccentFillColorDefaultBrush, var(--accent-base)));
+  border-radius: var(--SelectorBarItemPillCornerRadius, 2px);
+  transition: none;
+  pointer-events: none;
+}
+
+.win-selector-bar-item-common-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 1px solid var(--SelectorBarItemBorderBrush, transparent);
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+}
+
+.win-selector-bar-item:hover:not(:disabled) {
+  color: var(--SelectorBarItemForegroundPointerOver, var(--TextFillColorSecondaryBrush, var(--text-secondary)));
+  background: var(--SelectorBarItemBackgroundPointerOver, transparent);
+}
+
+.win-selector-bar-item:active:not(:disabled) {
+  color: var(--SelectorBarItemForegroundPressed, var(--text-tertiary));
+  background: var(--SelectorBarItemBackgroundPressed, transparent);
+}
+
+.win-selector-bar-item.is-selected {
+  color: var(--SelectorBarItemForegroundSelected, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  background: var(--SelectorBarItemBackgroundSelected, transparent);
+}
+
+.win-selector-bar-item.is-selected:hover:not(:disabled),
+.win-selector-bar-item.is-selected:active:not(:disabled) {
+  color: var(--SelectorBarItemForegroundPointerOver, var(--TextFillColorSecondaryBrush, var(--text-secondary)));
+}
+
+.win-selector-bar-item.is-selected .win-selector-bar-item-selection-visual {
+  opacity: 1;
+  width: var(--SelectorBarItemPillSelectedWidth, 16px);
+  animation: win-selector-bar-selection-visual-show var(--ComboBoxItemScaleAnimationDuration, 0.167s) var(--fast-out-slow-in, cubic-bezier(0, 0, 0, 1)) both;
+}
+
+.win-selector-bar-item.is-disabled {
+  color: var(--SelectorBarItemForegroundDisabled, var(--TextFillColorDisabledBrush, var(--text-disabled)));
+  background: var(--SelectorBarItemBackgroundDisabled, transparent);
+}
+
+.win-selector-bar-item.is-disabled .win-selector-bar-item-selection-visual {
+  background: var(--SelectorBarItemDisabledPillFill, var(--AccentFillColorDisabledBrush, var(--accent-fill-disabled)));
+}
+
+.win-selector-bar-item:focus-visible {
+  outline: 2px solid var(--focus-stroke-outer, var(--TextFillColorPrimaryBrush, var(--text-primary)));
+  outline-offset: var(--SelectorBarItemFocusVisualMargin, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .win-selector-bar-item.is-selected .win-selector-bar-item-selection-visual {
+    animation: none;
+  }
+}
+
+@keyframes win-selector-bar-selection-visual-show {
+  from {
+    width: var(--SelectorBarItemPillWidth, 4px);
+    opacity: 0;
+  }
+  to {
+    width: var(--SelectorBarItemPillSelectedWidth, 16px);
+    opacity: 1;
+  }
+}

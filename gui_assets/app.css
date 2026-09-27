@@ -1,0 +1,621 @@
+/*
+ * 应用布局样式 — 基于 WinUIonWeb 的主题令牌(winui.css)
+ * 设计语言:Windows 11 Fluent(WinUI 3)
+ */
+
+/* hidden 属性优先级必须高于组件的 display 规则(如 .content-dialog-overlay) */
+[hidden] {
+  display: none !important;
+}
+
+/* 警告色:采用橙色,不用 WinUI 默认的警告黄 */
+:root {
+  --app-warn: #B25000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { --app-warn: #F7630C; }
+}
+
+html.theme-light { --app-warn: #B25000; }
+html.theme-dark { --app-warn: #F7630C; }
+
+/* ─── 页面骨架 ─────────────────────────────────────────────── */
+
+html, body {
+  overflow: hidden;
+}
+
+#app-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--app-bg);
+}
+
+.app-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* InfoBar 常显区(不随页签切换) */
+.infobar-slot {
+  flex: 0 0 auto;
+  padding: 0 24px;
+}
+
+.infobar-slot:not(:empty) { margin-bottom: -4px; }
+
+/* 滚动条(WebView2 = Chromium) */
+.app-main::-webkit-scrollbar,
+.file-list::-webkit-scrollbar,
+.log-view::-webkit-scrollbar,
+.kanban::-webkit-scrollbar { width: 12px; }
+
+.app-main::-webkit-scrollbar-thumb,
+.file-list::-webkit-scrollbar-thumb,
+.log-view::-webkit-scrollbar-thumb,
+.kanban::-webkit-scrollbar-thumb {
+  background: var(--ctrl-strong-stroke);
+  border-radius: 6px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+.app-main::-webkit-scrollbar-thumb:hover,
+.file-list::-webkit-scrollbar-thumb:hover,
+.log-view::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.app-main::-webkit-scrollbar-track,
+.file-list::-webkit-scrollbar-track,
+.log-view::-webkit-scrollbar-track,
+.kanban::-webkit-scrollbar-track { background: transparent; }
+
+/* ─── 页签栏(SelectorBar) ────────────────────────────────── */
+
+.app-tabbar {
+  flex: 0 0 auto;
+  padding: 6px 24px 0;
+  border-bottom: 1px solid var(--stroke-divider);
+}
+
+/* 页签页 */
+.tab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.tab-page[hidden] { display: none; }
+
+.tab-page-log .log-card {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* ─── 卡片 ─────────────────────────────────────────────────── */
+
+.app-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 16px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.app-card.disabled { opacity: 0.5; pointer-events: none; }
+
+#card-files { flex: 1 1 auto; min-height: 0; }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 22px;
+}
+
+/* ─── 拖放区(主视觉) ─────────────────────────────────────── */
+
+.drop-zone {
+  border: 1px solid var(--stroke-divider);
+  border-radius: 8px;
+  background: var(--card-bg-secondary);
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 16px;
+  text-align: center;
+  transition: background var(--fast-duration) var(--fast-out-slow-in),
+              border-color var(--fast-duration) var(--fast-out-slow-in),
+              box-shadow var(--fast-duration) var(--fast-out-slow-in);
+}
+
+.drop-zone:hover { background: var(--subtle-secondary); }
+
+.drop-zone.drag-over {
+  border-color: var(--accent-base);
+  box-shadow: inset 0 0 0 1px var(--accent-base);
+  background: color-mix(in srgb, var(--accent-base) 6%, transparent);
+}
+
+.drop-zone.disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.dz-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-base) 12%, transparent);
+  color: var(--accent-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  transition: background var(--fast-duration) var(--fast-out-slow-in);
+}
+
+.dz-icon { font-size: 21px; }
+
+.drop-zone.drag-over .dz-icon-wrap {
+  background: color-mix(in srgb, var(--accent-base) 22%, transparent);
+}
+
+.drop-zone .dz-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.drop-zone.drag-over .dz-text { color: var(--accent-base); }
+
+/* ─── 文件列表工具栏 ──────────────────────────────────────── */
+
+.file-list-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-spacer { flex: 1 1 auto; }
+
+.file-count {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ─── 文件列表 ────────────────────────────────────────────── */
+
+.file-list {
+  flex: 1 1 auto;
+  min-height: 120px;
+  overflow-y: auto;
+  border: 1px solid var(--stroke-divider);
+  border-radius: 8px;
+  background: var(--LayerFillColorAltBrush);
+}
+
+.file-list .file-empty {
+  height: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.file-list .file-empty .win-font-icon { font-size: 26px; opacity: 0.55; }
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 6px 8px 6px 14px;
+  transition: background var(--fast-duration) linear;
+}
+
+.file-row:not(:first-child) { border-top: 1px solid var(--stroke-divider); }
+
+.file-row:hover { background: var(--subtle-secondary); }
+
+.file-icon {
+  flex: 0 0 auto;
+  font-size: 17px;
+  color: var(--text-secondary);
+}
+
+.file-icon.encrypted { color: var(--accent-base); }
+
+.file-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.file-name {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-dir {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  line-height: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+}
+
+.file-ext-chip {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 16px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--subtle-secondary);
+  color: var(--text-secondary);
+}
+
+.file-ext-chip.encrypted {
+  color: var(--accent-base);
+  background: color-mix(in srgb, var(--accent-base) 12%, transparent);
+}
+
+.file-meta {
+  flex: 0 0 auto;
+  min-width: 64px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.file-remove {
+  flex: 0 0 auto;
+  width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity var(--fast-duration) linear;
+}
+
+.file-row:hover .file-remove { opacity: 1; }
+.file-remove:hover { color: var(--SystemFillColorCriticalBrush) !important; }
+
+/* ─── 日志页签 ────────────────────────────────────────────── */
+
+.log-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.log-toolbar h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 22px;
+}
+
+.log-view {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--SolidBackgroundFillColorTertiaryBrush);
+  border: 1px solid var(--stroke-divider);
+  border-radius: 8px;
+  padding: 10px 14px;
+  overflow-y: auto;
+  font-family: 'Cascadia Mono', 'Consolas', monospace;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-secondary);
+  user-select: text;
+  -webkit-user-select: text;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.log-view:empty::before {
+  content: '处理日志会显示在这里';
+  color: var(--text-disabled);
+}
+
+.log-line { display: block; }
+
+.log-step {
+  color: var(--accent-base);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.log-line.log-step:first-child { margin-top: 0; }
+
+.log-ok { color: var(--SystemFillColorSuccessBrush); }
+.log-warn { color: var(--app-warn); }
+.log-err { color: var(--SystemFillColorCriticalBrush); }
+.log-dim { color: var(--text-tertiary); }
+
+/* ─── 底部流程状态条:步骤 + 进度 ──────────────────────────── */
+
+.kanban-strip {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 24px 14px;
+  border-top: 1px solid var(--stroke-divider);
+  background: var(--card-bg-secondary);
+}
+
+.kanban {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.kan-step {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+  /* 窄窗口下不挤压换行,而是让 .kanban 横向滚动 */
+  min-width: max-content;
+}
+
+.kan-step:last-child { flex: 0 0 auto; }
+
+/* 步骤间的连接线 */
+.kan-step::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  min-width: 10px;
+  margin: 0 10px;
+  background: var(--stroke-divider);
+  transition: background var(--normal-duration) var(--fast-out-slow-in);
+}
+
+.kan-step:last-child::after { display: none; }
+
+.kan-step.is-done::after,
+.kan-step.is-skip::after {
+  background: color-mix(in srgb, var(--SystemFillColorSuccessBrush) 45%, transparent);
+}
+
+.kan-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-tertiary);
+  color: var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  transition: background var(--fast-duration) linear,
+              border-color var(--fast-duration) linear,
+              color var(--fast-duration) linear;
+}
+
+.kan-label {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* 状态:运行中(呼吸光环) */
+.kan-step.is-running .kan-icon {
+  border-color: var(--accent-base);
+  color: var(--accent-base);
+  animation: kan-pulse 1.6s ease-out infinite;
+}
+
+.kan-step.is-running .kan-label { color: var(--text-primary); }
+
+@keyframes kan-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-base) 35%, transparent); }
+  70%  { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* 状态:完成 */
+.kan-step.is-done .kan-icon {
+  background: var(--SystemFillColorSuccessBrush);
+  border-color: var(--SystemFillColorSuccessBrush);
+  color: transparent;
+  font-size: 0;
+}
+
+.kan-step.is-done .kan-icon::before {
+  content: '\E73E';
+  font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.kan-step.is-done .kan-label { color: var(--text-primary); }
+
+/* 状态:跳过 */
+.kan-step.is-skip .kan-icon {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  font-size: 0;
+}
+
+.kan-step.is-skip .kan-icon::before {
+  content: '\E738';
+  font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets', sans-serif;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.kan-step.is-skip .kan-label { color: var(--text-tertiary); }
+
+/* 状态:出错 */
+.kan-step.is-error .kan-icon {
+  background: var(--SystemFillColorCriticalBrush);
+  border-color: var(--SystemFillColorCriticalBrush);
+  color: transparent;
+  font-size: 0;
+}
+
+.kan-step.is-error .kan-icon::before {
+  content: '\E783';
+  font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.kan-step.is-error .kan-label {
+  color: var(--SystemFillColorCriticalBrush);
+}
+
+/* 空闲提示与进度区 */
+.progress-wrap {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-wrap.visible { display: flex; }
+
+/* ProgressBar.vue 的高度由组件内联样式提供,静态 DOM 需显式声明 */
+#progress-bar {
+  width: 100%;
+  height: 3px;
+  min-height: 3px;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ─── 底栏:清理缓存 + 引擎状态居左,输出目录 + 开始处理居右 ── */
+
+.app-footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 24px 8px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* 引擎状态徽章 */
+.engine-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.engine-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.engine-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--SystemFillColorSuccessBrush);
+}
+
+.engine-badge.missing .engine-dot { background: var(--SystemFillColorCriticalBrush); }
+.engine-badge.missing { color: var(--text-tertiary); }
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+#btn-clean { min-height: 34px; }
+
+#btn-start {
+  min-width: 140px;
+  min-height: 36px;
+  font-size: 14px;
+}
+
+.app-footer .win-font-icon { font-size: 13px; }
+
+.footer-path {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
