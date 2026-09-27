@@ -97,7 +97,8 @@ Kugo-Music-Converter/
 - **解密输出** — 所有解密产物都在 `kgm-vpr-out/` 目录
 - 运行完整流程后，复制到根目录的临时文件会自动清理，无需手动删除
 - 图形界面需要 `pip install pywebview`；打包时需把界面资源一起带上：
-  `pyinstaller --onefile --console gui.py --name 图形界面 --add-data "gui_assets;gui_assets"`
+  `pyinstaller --onefile --console gui.py --name 图形界面 --add-data "gui_assets;gui_assets" --icon gui_assets/icon.ico`
+  （图标源文件为 `gui_assets/icon.svg`，修改后需重新生成 `icon.ico`）
 - 本工具仅用于解密已购买或已获取的合法音乐文件，请尊重版权
 
 ---

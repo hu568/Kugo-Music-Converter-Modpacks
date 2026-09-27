@@ -1,0 +1,111 @@
+<!-- 图形界面.exe 应用图标 v3「解锁黑胶」
+       整枚图标是一张黑色黑胶唱片:音乐被锁在唱片里,中心琥珀色标贴上的钥匙孔透出暖光——
+       解锁加密音频、释放音乐的意象。圆形轮廓 + 炭黑/琥珀暖色,与旧版蓝色方块+音符完全区分。
+       细节:同心纹圈与音轨分隔线、青/紫虹彩折射、对角柔光扫过、纹圈星芒、
+       标贴内圈受光环、钥匙孔暖光外溢。自包含 SVG,无外部引用。 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- 深化 v2:解锁黑胶 — 增强光带/虹彩/钥匙孔暖光/星芒 -->
+  <defs>
+    <radialGradient id="disc" cx="0.35" cy="0.3" r="1.1">
+      <stop offset="0" stop-color="#3C414F"/>
+      <stop offset="0.55" stop-color="#23262F"/>
+      <stop offset="1" stop-color="#0C0E13"/>
+    </radialGradient>
+    <radialGradient id="label" cx="0.35" cy="0.28" r="0.95">
+      <stop offset="0" stop-color="#FFD374"/>
+      <stop offset="0.5" stop-color="#FFA14A"/>
+      <stop offset="1" stop-color="#EE5C3B"/>
+    </radialGradient>
+    <radialGradient id="kg" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFE7B0" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#FFC46A" stop-opacity="0.34"/>
+      <stop offset="0.8" stop-color="#FFC46A" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#FFC46A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="iri1" gradientUnits="userSpaceOnUse" x1="40" y1="180" x2="150" y2="240">
+      <stop offset="0" stop-color="#4FD8C8" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#4FD8C8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4FD8C8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="iri2" gradientUnits="userSpaceOnUse" x1="170" y1="20" x2="240" y2="120">
+      <stop offset="0" stop-color="#B48CFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#B48CFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#B48CFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sweepCore" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rim" gradientUnits="userSpaceOnUse" x1="24" y1="24" x2="232" y2="232">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="keyFill" gradientUnits="userSpaceOnUse" x1="116" y1="108" x2="142" y2="152">
+      <stop offset="0" stop-color="#2A150B"/>
+      <stop offset="1" stop-color="#100702"/>
+    </linearGradient>
+    <filter id="b3" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="b4" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="b6" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="b8" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="b10" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="10"/></filter>
+    <clipPath id="discClip"><circle cx="128" cy="128" r="124"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#discClip)">
+    <circle cx="128" cy="128" r="124" fill="url(#disc)"/>
+    <!-- 纹圈 -->
+    <g fill="none" stroke="#FFFFFF">
+      <circle cx="128" cy="128" r="54" stroke-opacity="0.045"/>
+      <circle cx="128" cy="128" r="58.5" stroke-opacity="0.03"/>
+      <circle cx="128" cy="128" r="63" stroke-opacity="0.11" stroke-width="1.6"/>
+      <circle cx="128" cy="128" r="67.5" stroke-opacity="0.035"/>
+      <circle cx="128" cy="128" r="72" stroke-opacity="0.05"/>
+      <circle cx="128" cy="128" r="76.5" stroke-opacity="0.03"/>
+      <circle cx="128" cy="128" r="81" stroke-opacity="0.11" stroke-width="1.6"/>
+      <circle cx="128" cy="128" r="85.5" stroke-opacity="0.04"/>
+      <circle cx="128" cy="128" r="90" stroke-opacity="0.05"/>
+      <circle cx="128" cy="128" r="94.5" stroke-opacity="0.03"/>
+      <circle cx="128" cy="128" r="99" stroke-opacity="0.11" stroke-width="1.6"/>
+      <circle cx="128" cy="128" r="103.5" stroke-opacity="0.035"/>
+      <circle cx="128" cy="128" r="108" stroke-opacity="0.05"/>
+      <circle cx="128" cy="128" r="112.5" stroke-opacity="0.10" stroke-width="1.5"/>
+      <circle cx="128" cy="128" r="117" stroke-opacity="0.04"/>
+    </g>
+    <!-- 虹彩折射弧 -->
+    <circle cx="128" cy="128" r="85" fill="none" stroke="url(#iri1)" stroke-width="16" stroke-dasharray="150 384" transform="rotate(140 128 128)" opacity="0.42" filter="url(#b4)"/>
+    <circle cx="128" cy="128" r="100" fill="none" stroke="url(#iri2)" stroke-width="14" stroke-dasharray="130 498" transform="rotate(-42 128 128)" opacity="0.36" filter="url(#b4)"/>
+    <!-- 边缘内阴影与轮盘高光 -->
+    <circle cx="128" cy="128" r="119.5" fill="none" stroke="#000000" stroke-opacity="0.38" stroke-width="9" filter="url(#b6)"/>
+    <circle cx="128" cy="128" r="122" fill="none" stroke="url(#rim)" stroke-width="3.5"/>
+    <!-- 标贴 -->
+    <circle cx="128" cy="128" r="46.5" fill="#160B06" opacity="0.85"/>
+    <circle cx="128" cy="128" r="46" fill="url(#label)"/>
+    <circle cx="128" cy="128" r="39" fill="none" stroke="#FFF6E0" stroke-opacity="0.32" stroke-width="1.4"/>
+    <circle cx="112" cy="108" r="7" fill="#FFE9B0" opacity="0.5" filter="url(#b3)"/>
+    <!-- 钥匙孔:透出暖光 -->
+    <circle cx="128" cy="131" r="43" fill="url(#kg)"/>
+    <g fill="url(#keyFill)">
+      <circle cx="128" cy="118.5" r="12.5"/>
+      <path d="M121.2,126.5 L134.8,126.5 L140.2,145.5 Q141.2,150.5 135.6,150.5 L120.4,150.5 Q114.8,150.5 115.8,145.5 Z"/>
+    </g>
+        <!-- 光带横扫全盘(宽羽化 + 窄亮芯) -->
+    <g transform="rotate(32 128 128)">
+      <rect x="14" y="-80" width="76" height="416" fill="url(#sweep)" filter="url(#b10)"/>
+      <rect x="36" y="-80" width="18" height="416" fill="url(#sweepCore)" filter="url(#b4)"/>
+    </g>
+    <!-- 纹圈上的星芒 -->
+    <g fill="#FFFFFF">
+      <path transform="translate(74 70) scale(0.95)" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" opacity="0.8"/>
+      <path transform="translate(190 186) scale(0.6)" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" opacity="0.55"/>
+      <path transform="translate(196 120) scale(0.42)" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" opacity="0.5"/>
+    </g>
+  </g>
+</svg>
