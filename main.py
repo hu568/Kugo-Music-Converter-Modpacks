@@ -40,6 +40,9 @@ FFMPEG = os.path.join(OUTPUT_DIR, "ffmpeg.exe")
 # 记录从 input/ 复制过来的文件，用于运行结束后清理
 _copied_files: list[str] = []
 
+# 子进程不创建控制台窗口(被 GUI 以 CREATE_NO_WINDOW 启动时自身无控制台,不加会弹出黑色终端)
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+
 # 颜色输出（Windows 兼容）
 class Colors:
     GREEN = "\033[92m"
@@ -253,6 +256,7 @@ def run_unlock_tool() -> bool:
             encoding='utf-8',
             errors='replace',
             timeout=120,
+            creationflags=NO_WINDOW,
         )
         print_info(f"{os.path.basename(unlock_exe)} 已执行完成")
         if result.stdout:
@@ -321,6 +325,7 @@ def step_process_kgg() -> bool:
                 encoding='utf-8',
                 errors='replace',
                 timeout=120,
+                creationflags=NO_WINDOW,
             )
             if result.returncode != 0:
                 print_info(f"  kgg-dec.exe 返回码: {result.returncode}，检查输出文件 ...")
@@ -423,6 +428,7 @@ def step_convert_flac_to_mp3() -> bool:
                 encoding='utf-8',
                 errors='replace',
                 timeout=600,
+                creationflags=NO_WINDOW,
             )
             if os.path.isfile(dst):
                 # 从 ffmpeg 输出中提取时长和大小
@@ -530,8 +536,8 @@ def show_banner() -> None:
     """显示启动横幅"""
     banner = f"""
 {Colors.CYAN}{Colors.BOLD}╔══════════════════════════════════════════════╗
-║      Kugo Music Converter Modpacks          ║
-║      酷狗音乐加密音频解密/转换工具箱           ║
+║      Kugo Music Converter Modpacks           ║
+║      酷狗音乐加密音频解密/转换工具箱         ║
 ╚══════════════════════════════════════════════╝{Colors.RESET}
 """
     print(banner)
